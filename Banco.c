@@ -1,7 +1,13 @@
+// Archivos de cabecera  << ./src >>
 #include "Run.h"
+// Archivos de cabecera  << ./BD >>
+#include "./fncBD/fncBD__Run.h"
+// Archivos de cabecera << ./Banco >>
+#include "./fncBanco/fncBanco__Run.h"
+
 
 // Compilar
-// gcc -c Banco.c -I"./src" -I"./fncBanco" -I"./fncBD" -std=c99 && gcc -o Banco Banco.o
+// gcc -c Banco.c -I"./src" -std=c99 && gcc -o Banco Banco.o
 // Compatible con Windows y Linux-Mint
 
 int main(){
@@ -37,4 +43,3 @@ int main(){
 
 return 0;	
 }
-

@@ -5,18 +5,6 @@ char ArchivoBaseDeDatos[1][250] = {"./BD/._bd_usuarios_registrados"};
 char FolderBD[1][250] = {"./BD/"};
 char FileBD[4][250] = {"._act_","._banco_","._user_","._tmp_"};
 
-// Archivo - Banco
-char TitulosBanco[10][250] = {
-"################## BANCO ###################\n", // 0	
-"################## CREAR CUENTA ###################\n", // 1	
-"################## MODIFICAR CUENTA ###################\n", // 2	
-"################## BUSCAR CUENTA ###################\n", // 3
-"################## DEPOSITAR ###################\n", // 4
-"################## RETIRAR ###################\n", // 5
-"################## TRANSFERIR ###################\n" // 6
-};
-
-
 struct BANCO
 {
     int TotalDeCampos;
