@@ -20,8 +20,8 @@
 	printf("Lo siento, opcion incorrecta."); \
 	BUFFERFREE;	\
 
-#define OPTION( fnc ) \
-	if(EnabledOpction){ fnc(); }else{ OPTIONERROR; } 
+#define OPTION( Key, fnc ) \
+	if(Key){ fnc(); }else{ OPTIONERROR; }
 
 #define CHECKEO(a) \
 		strtok(a, "\n"); \

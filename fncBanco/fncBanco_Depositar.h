@@ -49,7 +49,6 @@ void fncBanco_Depositar(){
 		printf("Lo siento, la cuenta es inexistente. \n");
 	}
 	
-	EnabledOpction = true;
 	BUFFERFREE;
 }
 

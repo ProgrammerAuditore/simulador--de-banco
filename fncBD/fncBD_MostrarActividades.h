@@ -11,7 +11,7 @@ void fncBD_MostrarActividades(int xAct){
 	
 	GETREGISTRO(Registro, bd);
 	actividades.TotalDeCampos = atoi(Registro);
-	printf("------------[ ACTIVIDADES ]\n");
+	//printf("------------[ ACTIVIDADES ]\n");
 	printf("################################################ \n");
 	//printf("%i > Total de registros analizar \n", actividades.TotalDeCampos);
 	

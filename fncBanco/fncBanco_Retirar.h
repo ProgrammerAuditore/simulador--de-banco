@@ -54,7 +54,6 @@ void fncBanco_Retirar(){
 	
 	}
 	
-	EnabledOpction = true;
 	BUFFERFREE;
 }
 

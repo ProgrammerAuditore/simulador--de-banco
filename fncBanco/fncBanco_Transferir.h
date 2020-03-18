@@ -79,7 +79,6 @@ void fncBanco_Transferir(){
 	}
 	
 	fncBD_DeshacerConexionDB();
-	EnabledOpction = true;
 	BUFFERFREE;
 	
 }

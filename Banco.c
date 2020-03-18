@@ -26,12 +26,12 @@ int main(){
 		if( Opcion != '\n'){
 			switch (Opcion){
 				case '0': break; break;
-				case '1': OPTION(fncBanco_CrearCuenta); break;
-				case '2': OPTION(fncBanco_ModificarCuenta); break;
-				case '3': OPTION(fncBanco_BuscarCuenta); break;
-				case '4': OPTION(fncBanco_Depositar); break;
-				case '5': OPTION(fncBanco_Retirar); break;
-				case '6': OPTION(fncBanco_Transferir); break;
+				case '1': fncBanco_CrearCuenta(); break;
+				case '2': fncBanco_ModificarCuenta(); break;
+				case '3': fncBanco_BuscarCuenta(); break;
+				case '4': fncBanco_Depositar(); break;
+				case '5': fncBanco_Retirar(); break;
+				case '6': fncBanco_Transferir(); break;
 				default: OPTIONERROR;
 			}
 		}

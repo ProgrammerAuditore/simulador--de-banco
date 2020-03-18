@@ -19,7 +19,6 @@ void fncBanco_BuscarCuenta(){
 		printf("Lo siento, la cuenta es inexistente. \n");
 	}
 	
-	EnabledOpction = true;
 	BUFFERFREE;
 
 }

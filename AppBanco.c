@@ -23,20 +23,37 @@ int main(){
 		Opcion = getchar();
 		BUFFERFREE;
 		
-		if( Opcion != '\n'){
+		if( Opcion != '\n' ){
 			switch (Opcion){
-				case '0': break; break;
-				//case '1': OPTION(fncBanco_CrearCuenta); break;
-				//case '2': OPTION(fncBanco_ModificarCuenta); break;
-				//case '3': OPTION(fncBanco_BuscarCuenta); break;
-				//case '4': OPTION(fncBanco_Depositar); break;
-				//case '5': OPTION(fncBanco_Retirar); break;
-				//case '6': OPTION(fncBanco_Transferir); break;
+				// Controlar programa
+				case '0': 
+				if(!Session){
+					break;
+				}else{
+					Opcion = '\0';
+					printf("Lo siento, opcion incorrecta. \n"); 
+					BUFFERFREE;
+				}
+				break;
+
+				// Controlar session
+				case '1':
+				if(!Session)
+					fncAppBanco_IniciarSession(); 
+				else
+					fncAppBanco_CerrarSession(); 
+				break;
+				
+				// Opciones del AppBanco
+				case '2': OPTION(Session && Cuenta, fncAppBanco_DatosPersonales); break;
+				case '3': OPTION(Session && Cuenta, fncAppBanco_DatosBanco); break;
+				case '4': OPTION(Session && Cuenta, fncAppBanco_MostrarActividades); break;
+				case 'x': OPTION(Session && !Cuenta, fncAppBanco_CambiarPIN); break;
 				default: OPTIONERROR;
 			}
 		}
 		
-	}while(Opcion != '0');
+	}while(Opcion != '0' );
 
 	printf("THE END ");
 	BUFFERFREE;

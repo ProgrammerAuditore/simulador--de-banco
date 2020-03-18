@@ -96,7 +96,6 @@ void fncBanco_CrearCuenta(){
 	}
 	
 	fncBD_DeshacerConexionDB();
-	EnabledOpction = true;
 	BUFFERFREE;
 
 }

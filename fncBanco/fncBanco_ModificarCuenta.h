@@ -39,8 +39,7 @@ void fncBanco_ModificarCuenta(){
 		fncBD_ActualizarDBUser();
 		fncBD_DeshacerConexionDB();
 	}
-	
-	EnabledOpction = true;
+
 	BUFFERFREE;
 }
 
