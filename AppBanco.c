@@ -10,6 +10,9 @@
 // gcc -c AppBanco.c -I"./src" -std=c99 && gcc -o AppBanco AppBanco.o
 // Compatible con Windows y Linux-Mint
 
+// Funciones pendientes:
+// - 
+
 int main(){
 
 	CLEAN;
@@ -48,6 +51,7 @@ int main(){
 				case '2': OPTION(Session && Cuenta, fncAppBanco_DatosPersonales); break;
 				case '3': OPTION(Session && Cuenta, fncAppBanco_DatosBanco); break;
 				case '4': OPTION(Session && Cuenta, fncAppBanco_MostrarActividades); break;
+				case '5': OPTION(Session && Cuenta, fncAppBanco_ConsultarSaldo); break;
 				case 'x': OPTION(Session && !Cuenta, fncAppBanco_CambiarPIN); break;
 				default: OPTIONERROR;
 			}

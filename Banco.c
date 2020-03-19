@@ -10,6 +10,11 @@
 // gcc -c Banco.c -I"./src" -std=c99 && gcc -o Banco Banco.o
 // Compatible con Windows y Linux-Mint
 
+// Funciones pendientes:
+// - Desbloquear cuenta
+// - Eliminar cuenta
+// - Cambiar PIN
+
 int main(){
 
 	CLEAN;

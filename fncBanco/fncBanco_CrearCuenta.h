@@ -70,7 +70,7 @@ void fncBanco_CrearCuenta(){
 		anho, UsuarioID, NoAleatorio );
 		strcpy(bdusuarios.NoCuenta, banco.NoCuenta);
 		
-		banco.PIN = fnc_GenerarPIN();;
+		banco.PIN = fnc_GenerarPIN();
 		banco.EstadoDeCuenta = 0;
 		banco.Saldo = 0;
 		
@@ -88,7 +88,11 @@ void fncBanco_CrearCuenta(){
 		fncBD_RegistrarUsuarioDB();
 		
 		printf("\n------------[ CUENTA CREADO ]\n");
+		
+		printf("------------[ DATOS BANCO ]\n");
 		fncBD_MostrarDatosBanco();
+
+		printf("------------[ DATOS PERSONALES ]\n");
 		fncBD_MostrarDatosUser();
 		
 	}else{

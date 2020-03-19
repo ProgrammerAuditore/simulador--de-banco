@@ -29,6 +29,7 @@
 			printf("Campo rechazado.\n"); \
 			CAMPOS_INCORRECTAS++; \
 		}else{  \
+			CAMPOS_INCORRECTAS = 0; \
 			printf("Campo aceptado.\n"); \
 		}
 
@@ -53,3 +54,6 @@
 		if( CAMPOS_INCORRECTAS == 0 ){ \
 			snprintf(DATO_DESTINO, TAMANHOSTR, "%s" , DATO); \
 		}
+
+#define NUEVO_PIN(PIN1) \
+	( !(PIN1 >= 111111 && PIN1 <= 999999) ? true : false )

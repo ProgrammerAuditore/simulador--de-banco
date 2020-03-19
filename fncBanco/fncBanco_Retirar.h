@@ -1,16 +1,16 @@
 void fncBanco_Retirar(){
 	CLEAN;
 	printf("%s", TitulosBanco[5]);
-	char NoTarjetaCuenta[MAXCARACTERES];
+	char NoTarjeta[MAXCARACTERES];
 	char Descripcion[MAXCARACTERES];
 	int Retirar=0;
 
 	printf("1) Introduzca el No. de tarjeta: \n");
-	fgets(NoTarjetaCuenta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjetaCuenta);
+	fgets(NoTarjeta, MAXCARACTERES, stdin);
+	CHECKEO(NoTarjeta);
 	BUFFERFREE;
 	
-	if(fncBD_VerificarCuenta(NoTarjetaCuenta)){
+	if(fncBD_VerificarCuenta(NoTarjeta)){
 		
 		printf("1) Introduzca la cantidad a retirar \n");
 		scanf("%i", &Retirar);
@@ -19,7 +19,7 @@ void fncBanco_Retirar(){
 		fncBD_EstablecerConexionBD(false);
 		fncBD_ObtenerDatosBanco();
 		
-		if( banco.EstadoDeCuenta == 0){
+		if( banco.EstadoDeCuenta == 0 || banco.EstadoDeCuenta == -1 ){
 			printf("Lo siento, operacion rechazado. \n");
 			printf("Cuenta bloqueda.\n");
 		}else if(Retirar < 0 || Retirar%100 != 0 || Retirar == 0){
@@ -34,7 +34,7 @@ void fncBanco_Retirar(){
 			banco.Saldo -= Retirar;
 			fncBD_ActualizarDBBanco();
 			
-			sprintf(Descripcion,"Monto: (+) $%i" , Retirar);
+			sprintf(Descripcion,"Monto: (-) $%i" , Retirar);
 			actividades.TipoDeActividad = 400;
 			fncBD_RegistrarActividad("Banco: CASTIyO",
 			"Retiro: Operacion aceptado",

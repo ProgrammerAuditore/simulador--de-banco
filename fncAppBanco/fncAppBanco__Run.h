@@ -1,5 +1,5 @@
 // Archivo - AppBanco
-char TitulosAppBanco[10][250] = {
+char TitulosAppBanco[15][250] = {
 "################## APP BANCO ###################\n", // 0	
 "################## INICIAR SESSION ###################\n", // 1	
 "################## CERRAR SESSION ###################\n", // 2
@@ -8,11 +8,14 @@ char TitulosAppBanco[10][250] = {
 "################## MOSTRAR ACTIVIDADES  ###################\n", // 5
 "################## MOSTRAR DEPOSITOS ###################\n", // 6
 "################## MOSTRAR RETIROS ###################\n", // 7
-"################## MOSTRAR TRANSFERENCIAS ###################\n" // 8
+"################## MOSTRAR TRANSFERENCIAS ###################\n", // 8
+"################## MOSTRAR SALDO ###################\n" // 9
 };
 
 // Controlar la session
 bool Session = false; 
+int SessionIntentos = 0;
+char GuardaCuenta[MAXCARACTERES];
 
 
 // Controlar la cuenta
@@ -25,3 +28,4 @@ bool Cuenta = false;
 #include "./fncAppBanco_DatosBanco.h"
 #include "./fncAppBanco_MostrarActividades.h"
 #include "./fncAppBanco_CambiarPIN.h"
+#include "./fncAppBanco_ConsultarSaldo.h"

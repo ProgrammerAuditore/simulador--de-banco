@@ -1,6 +1,11 @@
-1;   // No. de operaciones 
-100; // Tpo de actividad 
-Fri Mar 13 20:27:11 2020; // Fecha 
-Banco: E&V;  // Remitente 
-Cuenta: creada; // Asunto 
-Monto: (+) $0.00; // Descripcion 
+2;
+100;
+Fri Mar 13 20:27:11 2020;
+Banco: E&V;
+Cuenta: creada;
+Monto: (+) $0.00;
+301;
+Wed Mar 18 20:56:29 2020;
+Banco: E&V;
+Transferencia recibido: 1990-MPR-412;
+Monto: (+) $300;

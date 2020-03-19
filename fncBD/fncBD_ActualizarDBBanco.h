@@ -7,8 +7,8 @@ void fncBD_ActualizarDBBanco(){
 		exit(1);
 	}
 	
-	fprintf(bd_tmp,"%s;\n", banco.NoCuenta);
 	fprintf(bd_tmp,"%s;\n", banco.NoTarjeta);
+	fprintf(bd_tmp,"%s;\n", banco.NoCuenta);
 	fprintf(bd_tmp,"%i;\n", banco.PIN);
 	fprintf(bd_tmp,"%i;\n", banco.EstadoDeCuenta);
 	fprintf(bd_tmp,"%lf;", banco.Saldo);

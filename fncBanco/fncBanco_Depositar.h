@@ -1,16 +1,16 @@
 void fncBanco_Depositar(){
 	CLEAN;
 	printf("%s", TitulosBanco[4]);
-	char NoTarjetaCuenta[MAXCARACTERES];
+	char NoTarjeta[MAXCARACTERES];
 	char Descripcion[MAXCARACTERES];	
 	int Depositar=0;
 
 	printf("1) Introduzca el No. de tarjeta: \n");
-	fgets(NoTarjetaCuenta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjetaCuenta);
+	fgets(NoTarjeta, MAXCARACTERES, stdin);
+	CHECKEO(NoTarjeta);
 	BUFFERFREE;
 	
-	if(fncBD_VerificarCuenta(NoTarjetaCuenta)){
+	if(fncBD_VerificarCuenta(NoTarjeta)){
 		
 		printf("1) Introduzca la cantidad a depositar \n");
 		scanf("%i", &Depositar);
@@ -19,7 +19,7 @@ void fncBanco_Depositar(){
 		fncBD_EstablecerConexionBD(false);
 		fncBD_ObtenerDatosBanco();
 		
-		if( banco.EstadoDeCuenta == 0){
+		if( banco.EstadoDeCuenta == 0 || banco.EstadoDeCuenta == -1){
 			printf("Lo siento, operacion rechazado. \n");
 			printf("Cuenta bloqueda.\n");
 		}else if(Depositar < 0 || Depositar%100 != 0 || Depositar == 0){

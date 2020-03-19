@@ -1,7 +1,7 @@
 void fncAppBanco_CambiarPIN(){
 
     CLEAN;
-	printf("%s", TitulosAppBanco[1]);
+	printf("%s", TitulosAppBanco[0]);
 	int PIN[2] = {0,0};
 
 	printf("1) Introduzca PIN ( actual ): \n");
@@ -18,8 +18,16 @@ void fncAppBanco_CambiarPIN(){
 	    scanf("%i", &PIN[1]);
 	    BUFFERFREE;
 
-        if( PIN[0] == PIN[1] && PIN[1] != banco.PIN &&
-            PIN[0] >= 111111 && PIN[0] <= 999999 ){
+        if( NUEVO_PIN(PIN[1]) ){
+            printf("\n*** ");
+            printf("Lo siento, PIN (nuevo) debe ser de 6 digitos. \n");
+        }else if(PIN[1] == banco.PIN){
+            printf("\n*** ");
+            printf("Lo siento, PIN (nuevo) no deber ser igual al anterior. \n");
+        }else if(PIN[1] != PIN[0]){
+            printf("\n*** ");
+            printf("Lo siento, PIN (nuevo) no coinciden. \n");
+        }else{
             
             printf("El PIN se modifico exitosamente. \n");
             banco.PIN = PIN[1];
@@ -27,12 +35,11 @@ void fncAppBanco_CambiarPIN(){
             fncBD_ActualizarDBBanco();
             Session = false;
        
-        }else{
-            printf("Lo siento, PIN incorrecto. \n");
         }
-    
+
     }else{
-            printf("Lo siento, PIN incorrecto. \n");
+        printf("\n*** ");
+        printf("Lo siento, PIN incorrecto. \n");
     }
 	
 	BUFFERFREE;

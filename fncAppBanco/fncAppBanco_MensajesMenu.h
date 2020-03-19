@@ -26,6 +26,7 @@ void fncAppBanco_MensajesMenu(){
 			printf("#2 > Datos personales  \n");
 			printf("#3 > Datos banco \n");
 			printf("#4 > Mostrar actividades \n");	
+			printf("#5 > Consultar saldo \n");	
 		}
 
 	}
