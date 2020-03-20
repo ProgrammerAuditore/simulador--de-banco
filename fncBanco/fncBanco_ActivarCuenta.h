@@ -1,5 +1,5 @@
-void fncBanco_EliminarCuenta(){
-
+void fncBanco_ActivarCuenta(){
+        
     CLEAN;
 	printf("%s", TitulosBanco[11]);
 	char NoTarjeta[MAXCARACTERES];
@@ -28,34 +28,22 @@ void fncBanco_EliminarCuenta(){
         }else if(PIN[1] != PIN[0]){
             printf("\n*** ");
             printf("Lo siento, PIN no coinciden. \n");
-        }if( banco.EstadoDeCuenta  != -1  ){
+        }else if( PIN[1] != banco.PIN ){
             printf("\n*** ");
-            printf("Lo siento, la cuenta aun esta activa. \n");
-        }else if( banco.Saldo > 0  ){
+            printf("Lo siento, PIN incorrecto. \n");
+        }else if( banco.EstadoDeCuenta == 1 ){
             printf("\n*** ");
-            printf("Lo siento, la cuenta tiene fondos. \n");
-        }else if( PIN[1] == banco.PIN ){
-
-			remove(bdusuarios.PATHActividades);
-			remove(bdusuarios.PATHBanco);
-			remove(bdusuarios.PATHUsuario);
+            printf("Lo siento, la cuenta esta activa. \n");
+        }else{
+			banco.EstadoDeCuenta = 1;
+            fncBD_ActualizarDBBanco();
 			
-			#ifdef __WIN32
-				ELIMINAR_DIR("rmdir /S /Q" , banco.NoCuenta);
-			#elif __linux__
-				ELIMINAR_DIR("rm -R -f" , banco.NoCuenta);
-			#endif
-
-			fncBD_ActualizarUsuariosBD();
-			printf("\nNOTA:\n");
+            printf("\nNOTA:\n");
             printf("La cuenta %s \n", banco.NoCuenta);
             printf("con no. de tarjeta %s: \n", banco.NoTarjeta);
-            printf("Se elimino exitosamente. \n");
-		
-		}else{
-			printf("Lo siento, PIN incorrecto. \n");
+            printf("Se activo exitosamente. \n");
         }
-		
+
 	}else
 	{
 		printf("Lo siento, la cuenta es inexistente. \n");

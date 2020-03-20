@@ -58,9 +58,9 @@ void fncBanco_CrearCuenta(){
 		// Creando No. Tarjera
 		sprintf(banco.NoTarjeta,"%i-%c%c%c-%i",
 		anho,
-		user.Nombres[0],
-		user.ApellidoPaterno[0],
-		user.ApellidoMaterno[0],
+		toupper(user.Nombres[0]),
+		toupper(user.ApellidoPaterno[0]),
+		toupper(user.ApellidoMaterno[0]),
 		UsuarioID
 		);
 		strcpy(bdusuarios.NoTarjeta, banco.NoTarjeta);

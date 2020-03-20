@@ -42,14 +42,8 @@ void fncBD_ActualizarUsuariosBD(){
 
 		}
 	}
-	fprintf(bd_tmp, "%s", "// Fin del documento");
-
-	printf("## \n");
-	printf("Fila total: %i %i \n", Rgfilas, 
-	((filaTotal * NOFILAS_BDUSUARIOS) - NOFILAS_BDUSUARIOS));
-
 	
-
+	fprintf(bd_tmp, "%s", "// Fin del documento");
 
 	fclose(bd);
 	fclose(bd_tmp);

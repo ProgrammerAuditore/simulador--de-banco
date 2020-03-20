@@ -11,7 +11,10 @@ void fncBanco_ModificarCuenta(){
 	
 	if(fncBD_VerificarCuenta(NoTarjeta)){
 		fncBD_EstablecerConexionBD(false);
+		// Requisito para actualizar al Path / Base de datos de 
+		// << datos de usuario >>
 		fncBD_ObtenerDatosBanco();
+
 		fncBD_MostrarDatosUser();
 		printf("\n------------[ MODIFICANDO DATOS PERSONALES ]\n");
 		
@@ -37,9 +40,12 @@ void fncBanco_ModificarCuenta(){
 		printf("Fecha de Nacimiento: %s\n", user.FechaNacimiento);
 		
 		fncBD_ActualizarDBUser();
-		fncBD_DeshacerConexionDB();
+		
+	}else{
+		printf("Lo siento, cuenta inexistente. \n");
 	}
 
+	fncBD_DeshacerConexionDB();
 	BUFFERFREE;
 }
 

@@ -55,7 +55,7 @@ if(fncBD_VerificarCuenta("1998-VMA-103")){
 				case '4': fncBanco_Depositar(); break;
 				case '5': fncBanco_Retirar(); break;
 				case '6': fncBanco_Transferir(); break;
-				case '7': fncBanco_EliminarCuenta(); break;
+				case '7': fncBanco_ConfigurarCuenta(); break;
 				default: OPTIONERROR;
 			}
 		}
