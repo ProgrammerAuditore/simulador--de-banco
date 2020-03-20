@@ -6,5 +6,6 @@ void fncBanco_MensajesMenu(){
 	printf("#4 > Depositar \n");
 	printf("#5 > Retirar \n");
 	printf("#6 > Transferir \n");
+	printf("#7 > Eliminar cuenta \n");
 	printf("#0 > Salir del programa \n");
 }

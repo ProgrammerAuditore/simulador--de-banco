@@ -57,3 +57,8 @@
 
 #define NUEVO_PIN(PIN1) \
 	( !(PIN1 >= 111111 && PIN1 <= 999999) ? true : false )
+
+#define ELIMINAR_DIR( ComandoOS ,PathDir ) \
+	String _dir; \
+	snprintf(_dir, MAXCARACTERES * 2, "%s %s%s", ComandoOS , FolderBD[0], PathDir ); \
+	system(_dir);

@@ -5,6 +5,7 @@ char FolderBD[1][250] = {"./BD/"};
 char FileBD[4][250] = {"._act_","._banco_","._user_","._tmp_"};
 
 // ESTADOS DE CUENTA
+// 1 - Cuenta desactivada
 // -1 - Cuenta bloqueada
 //  0 - Cuenta creado / nueva
 //  1 - Cuenta activada

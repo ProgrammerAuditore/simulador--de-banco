@@ -6,7 +6,8 @@ char TitulosBanco[10][250] = {
 "################## BUSCAR CUENTA ###################\n", // 3
 "################## DEPOSITAR ###################\n", // 4
 "################## RETIRAR ###################\n", // 5
-"################## TRANSFERIR ###################\n" // 6
+"################## TRANSFERIR ###################\n", // 6
+"################## ELIMINAR CUENTA ###################\n" // 7
 };
 
 // Archivos de cabecera - Banco
@@ -17,3 +18,4 @@ char TitulosBanco[10][250] = {
 #include "fncBanco_ModificarCuenta.h"
 #include "fncBanco_Retirar.h"
 #include "fncBanco_Transferir.h"
+#include "./fncBanco_EliminarCuenta.h"

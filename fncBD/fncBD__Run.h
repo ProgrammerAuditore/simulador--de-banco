@@ -1,3 +1,5 @@
+
+
 // Archivos de cabecera - BD
 #include "fncBD_DeshacerConexionDB.h"
 #include "fncBD_VerificarCuenta.h"
@@ -16,3 +18,4 @@
 #include "fncBD_CrearBDBanco.h"
 #include "fncBD_CrearBDUsuario.h"
 #include "fncBD_RegistrarUsuarioBD.h"
+#include "./fncBD_ActualizarUsuariosBD.h"

@@ -17,10 +17,10 @@ void fncBD_RegistrarUsuarioDB(){
 			//printf("%s \n", Registro);
 		}
 	}
-	
-	fprintf(bd,"\n");
+
 	fprintf(bd,"%s; \n", bdusuarios.NoTarjeta );
-	fprintf(bd,"%s;   ", bdusuarios.NoCuenta );
+	fprintf(bd,"%s;  \n", bdusuarios.NoCuenta );
+	fprintf(bd, "%s", "// Fin del documento");
 	
 	// Registrar el numero de registros
 	rewind(bd);
