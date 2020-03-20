@@ -29,9 +29,10 @@ void fncAppBanco_CambiarPIN(){
             printf("Lo siento, PIN (nuevo) no coinciden. \n");
         }else{
             
+            // Al cambiar el PIN la cuenta se activa
             printf("El PIN se modifico exitosamente. \n");
             banco.PIN = PIN[1];
-            banco.EstadoDeCuenta = 1;
+            banco.EstadoDeCuenta = ecCuentaActivada;
             fncBD_ActualizarDBBanco();
             Session = false;
        

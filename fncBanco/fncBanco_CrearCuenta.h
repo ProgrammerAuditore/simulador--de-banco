@@ -68,7 +68,7 @@ void fncBanco_CrearCuenta(){
 		strcpy(bdusuarios.NoCuenta, banco.NoCuenta);
 		
 		banco.PIN = fnc_GenerarPIN();
-		banco.EstadoDeCuenta = 0;
+		banco.EstadoDeCuenta = ecCuentaCreadaONueva;
 		banco.Saldo = 0;
 		
 		#ifdef __WIN32	
@@ -85,10 +85,8 @@ void fncBanco_CrearCuenta(){
 		fncBD_RegistrarUsuarioDB();
 		
 		printf("\n------------[ CUENTA CREADO ]\n");
-		
 		printf("------------[ DATOS BANCO ]\n");
 		fncBD_MostrarDatosBanco();
-
 		printf("------------[ DATOS PERSONALES ]\n");
 		fncBD_MostrarDatosUser();
 		

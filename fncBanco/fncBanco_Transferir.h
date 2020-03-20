@@ -23,17 +23,21 @@ void fncBanco_Transferir(){
 	
 	if( !fncBD_VerificarCuenta(NoTarjeta2) ){
 		printf("Lo siento, la cuenta a transferir es inexistente. \n");
-	}else if( banco.EstadoDeCuenta == 0 || banco.EstadoDeCuenta == -1 ){
-			printf("Lo siento, operacion rechazado. \n");
-			printf("Cuenta bloqueda.\n");
-			fncBD_ObtenerDatosBanco();
 	}else if( !fncBD_VerificarCuenta(NoTarjeta1) ){
 		printf("Lo siento, la cuenta remitente es inexistente. \n");
-	}else if( banco.EstadoDeCuenta == 0 || banco.EstadoDeCuenta == -1){
-			printf("Lo siento, operacion rechazado. \n");
-			printf("Cuenta bloqueda.\n");
 	}else if( fnc_CompararString(NoTarjeta1, NoTarjeta2) ){
 		printf("*** Error cuenta duplicadas. \n");
+	}else if( banco.EstadoDeCuenta == ecCuentaBloqueada ){
+		printf("Lo siento, operacion rechazado. \n");
+		printf("Cuenta bloqueda.\n");
+	}else if( banco.EstadoDeCuenta == ecCuentaCreadaONueva){
+		printf("Lo siento, operacion rechazado. \n");
+		printf("Cuenta nueva, activar cuenta antes de realizar operaciones. \n");
+		fncBD_ObtenerDatosBanco();
+	}else if( banco.EstadoDeCuenta == ecCuentaDesactivada){
+		printf("Lo siento, operacion rechazado. \n");
+		printf("Cuenta desactivada, activar cuenta antes de realizar operaciones. \n");
+		fncBD_ObtenerDatosBanco();
 	}else{
 
 		fncBD_EstablecerConexionBD(false);

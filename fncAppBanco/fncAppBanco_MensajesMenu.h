@@ -9,14 +9,19 @@ void fncAppBanco_MensajesMenu(){
 	
 	}else{
 
-		if(banco.EstadoDeCuenta == 0){
+		if( banco.EstadoDeCuenta == ecCuentaCreadaONueva ||
+			banco.EstadoDeCuenta == ecCuentaRecuperado){
 			// Si la cuenta es nueva obligamos al usuario
-			// a cambiar el PIN generado por el banco
-			printf("Hemos detectado que esta cuenta es nueva, \n");
+				// a cambiar el PIN generado por el banco
+			if(banco.EstadoDeCuenta == ecCuentaCreadaONueva)
+				printf("Hemos detectado que esta cuenta es nueva, \n");
+			else
+				printf("Hemos detectado que esta cuenta es recuperada, \n");
+				
 			printf("es necesario que cambie el PIN de la cuenta, \n");
 			printf("para poder activarlo y usar la tarjeta. \n");
 			printf("#1 > Cerrar session  \n");
-			printf(" x > Cambiar PIN \n");			
+			printf(" x > Cambiar PIN \n");
 		}
 		else 
 		{
