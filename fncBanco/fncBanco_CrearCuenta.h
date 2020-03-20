@@ -1,6 +1,3 @@
-int fnc_NumRandom();
-int fnc_GenerarPIN();
-
 void fncBanco_CrearCuenta(){
 	
 	CLEAN;
@@ -102,16 +99,4 @@ void fncBanco_CrearCuenta(){
 	fncBD_DeshacerConexionDB();
 	BUFFERFREE;
 
-}
-
-int fnc_NumRandom(){
-	time_t t;
-	srand((unsigned) time(&t));
-	return 100 + rand() % 989;
-}
-
-int fnc_GenerarPIN(){
-	time_t t;
-	srand((unsigned) time(&t));
-	return 100000 + rand() % 998999;
 }

@@ -5,15 +5,9 @@
 // Archivos de cabecera << ./Banco >>
 #include "./fncBanco/fncBanco__Run.h"
 
-
 // Compilar
 // gcc -c Banco.c -I"./src" -std=c99 && gcc -o Banco Banco.o
 // Compatible con Windows y Linux-Mint
-
-// Funciones pendientes:
-// - Desbloquear cuenta
-// - Eliminar cuenta
-// - Cambiar PIN
 
 int main(){
 
@@ -50,12 +44,11 @@ if(fncBD_VerificarCuenta("1998-VMA-103")){
 			switch (Opcion){
 				case '0': break; break;
 				case '1': fncBanco_CrearCuenta(); break;
-				case '2': fncBanco_ModificarCuenta(); break;
-				case '3': fncBanco_BuscarCuenta(); break;
-				case '4': fncBanco_Depositar(); break;
-				case '5': fncBanco_Retirar(); break;
-				case '6': fncBanco_Transferir(); break;
-				case '7': fncBanco_ConfigurarCuenta(); break;
+				case '2': fncBanco_Depositar(); break;
+				case '3': fncBanco_Retirar(); break;
+				case '4': fncBanco_Transferir(); break;
+				case '5': fncBanco_ConfigurarCuenta(); break;
+				case '6': fncBanco_OpcionesDeCuenta(); break;
 				default: OPTIONERROR;
 			}
 		}

@@ -1,7 +1,7 @@
 void fncBanco_ConfigurarCuenta(){
     
     CLEAN;
-	printf("%s", TitulosBanco[7]);
+	printf("%s", TitulosBanco[13]);
     int opcion;
 
 	printf("#1 > Activar cuenta  \n");
@@ -22,4 +22,5 @@ void fncBanco_ConfigurarCuenta(){
     }
     
 	BUFFERFREE;
+    
 }

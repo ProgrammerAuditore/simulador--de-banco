@@ -17,14 +17,13 @@ void fncBanco_BuscarCuenta(){
 		
 		printf("------------[ DATOS PERSONALES ]\n");
 		fncBD_MostrarDatosUser();
-
-		fncBD_DeshacerConexionDB();
 	}else
 	{
 		printf("Lo siento, la cuenta es inexistente. \n");
 	}
 	
-	BUFFERFREE;
-
+	fncBD_DeshacerConexionDB();
+	//BUFFERFREE;
+	
 }
 

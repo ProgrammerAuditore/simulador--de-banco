@@ -1,7 +1,7 @@
 void fncBanco_BloquearCuenta(){
     
     CLEAN;
-	printf("%s", TitulosBanco[11]);
+	printf("%s", TitulosBanco[10]);
 	char NoTarjeta[MAXCARACTERES];
 	int PIN[2] = {0,0};
 

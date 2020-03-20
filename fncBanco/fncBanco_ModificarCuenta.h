@@ -1,4 +1,5 @@
 void fncBanco_ModificarCuenta(){
+	
 	CLEAN;
 	printf("%s", TitulosBanco[2]);
 	char NoTarjeta[MAXCARACTERES];
@@ -46,6 +47,7 @@ void fncBanco_ModificarCuenta(){
 	}
 
 	fncBD_DeshacerConexionDB();
-	BUFFERFREE;
+	// BUFFERFREE;
+	
 }
 

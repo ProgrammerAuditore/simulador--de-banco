@@ -1,7 +1,7 @@
 void fncBanco_ActivarCuenta(){
         
     CLEAN;
-	printf("%s", TitulosBanco[11]);
+	printf("%s", TitulosBanco[8]);
 	char NoTarjeta[MAXCARACTERES];
 	int PIN[2] = {0,0};
 
