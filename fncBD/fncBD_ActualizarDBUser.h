@@ -1,11 +1,11 @@
 void fncBD_ActualizarDBUser(){
 	
 	// Crear la base de datos de usuario
-	sprintf(bdusuarios.PATHUsuario,"%s%s/%s%s",
+	sprintf(bdusuarios.PATHUser,"%s%s/%s%s",
 	FolderBD[0], banco.NoCuenta,
-	FileBD[2], banco.NoTarjeta);
+	FilesBD[2], banco.NoTarjeta);
 	
-	FILE *bd = fopen(bdusuarios.PATHUsuario, "w+");
+	FILE *bd = fopen(bdusuarios.PATHUser, "w+");
 	
 	if( bd == NULL){
 		perror("Base de datos << usuario >> no creado... \n");

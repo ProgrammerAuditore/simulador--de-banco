@@ -1,7 +1,7 @@
 bool fncBD_VerificarCuenta(String xCuenta){
     
     FILE *bd = fopen(ArchivoBaseDeDatos[0],"r");
-    char Registro[250];
+    String Registro;
     bool SiExiste = false;
 
     if( bd == NULL){

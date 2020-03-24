@@ -23,7 +23,7 @@
 #define OPTION( Key, fnc ) \
 	if(Key){ fnc(); }else{ OPTIONERROR; }
 
-#define CHECKEO(a) \
+#define CHECKEO_INPUT(a) \
 		strtok(a, "\n"); \
 		if( ((int)strlen(a) - 1) == 0 ){ \
 			printf("Campo rechazado.\n"); \
@@ -50,15 +50,27 @@
 	strtok(STR_DESTINO,DELIMITADOR);
 
 #define MODIFICAR_DATO(DATO_DESTINO, TAMANHOSTR , DATO) \
-		CHECKEO(DATO) \
+		CHECKEO_INPUT(DATO) \
 		if( CAMPOS_INCORRECTAS == 0 ){ \
 			snprintf(DATO_DESTINO, TAMANHOSTR, "%s" , DATO); \
 		}
 
-#define NUEVO_PIN(PIN1) \
+#define CHECKEO_PIN(PIN1) \
 	( !(PIN1 >= 111111 && PIN1 <= 999999) ? true : false )
 
 #define ELIMINAR_DIR( ComandoOS ,PathDir ) \
 	String _dir; \
 	snprintf(_dir, MAXCARACTERES * 2, "%s %s%s", ComandoOS , FolderBD[0], PathDir ); \
 	system(_dir);
+
+//  Mostrar mensaje de operacion - Solo texto
+#define MOSTRAR_MSGOPERACION( Mensaje ) \
+	sprintf( _banner_, "\n------------[ %s ]\n", Mensaje); \
+	printf("%s", _banner_); \
+	strcpy( _banner_ ,"\0");
+
+// Mostrar mensaje de error de operacion - Solo texto
+#define MOSTRAR_MSGO_ERROR( Mensaje ) \
+	sprintf( _banner_, "\n*** %s \n", Mensaje); \
+	printf("%s", _banner_); \
+	strcpy( _banner_ ,"\0");

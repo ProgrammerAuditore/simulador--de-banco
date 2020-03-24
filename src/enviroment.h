@@ -2,7 +2,8 @@ int CAMPOS_INCORRECTAS = 0;
 typedef char String[250];
 char ArchivoBaseDeDatos[1][250] = {"./BD/._bd_usuarios_registrados"};
 char FolderBD[1][250] = {"./BD/"};
-char FileBD[4][250] = {"._act_","._banco_","._user_","._tmp_"};
+char FilesBD[4][250] = {"._act_","._banco_","._user_","._tmp_"};
+String _banner_;
 
 // ESTADOS DE CUENTA
 // -2 - Cuenta bloqueada
@@ -29,13 +30,13 @@ enum EstadosDeCuenta {
 // 1000 - Notificacion del banco
 
 enum TiposDeActiviades { 
-    taCuentaCreada = 100,
     taDeposito = 200,
     taTransferenciaEnviado = 301,
     taTransferenciaRecibido = 302,
     taRetiro = 400,
     taCompra = 700,
-    taNotificacionBanco = 1000
+    taConfiguracionCuenta = 1000,
+    taNotificacionBanco = 5500
 };
 
 struct BANCO
@@ -74,7 +75,7 @@ struct BDUSUARIOS
     String NoCuenta;
     String NoTarjeta;
     String PATHActividades;
-    String PATHUsuario;
+    String PATHUser;
     String PATHBanco;
     int bdUsuarioID;
 }bdusuarios;

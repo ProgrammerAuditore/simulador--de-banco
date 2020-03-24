@@ -1,13 +1,13 @@
 void fncBanco_Depositar(){
 	CLEAN;
 	printf("%s", TitulosBanco[4]);
-	char NoTarjeta[MAXCARACTERES];
-	char Descripcion[MAXCARACTERES];	
+	String NoTarjeta;
+	String Descripcion;	
 	int Depositar=0;
 
 	printf("1) Introduzca el No. de tarjeta: \n");
 	fgets(NoTarjeta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjeta);
+	CHECKEO_INPUT(NoTarjeta);
 	BUFFERFREE;
 	
 	if(fncBD_VerificarCuenta(NoTarjeta)){
@@ -48,19 +48,19 @@ void fncBanco_Depositar(){
 				
 				// Registrar operacion
 				sprintf(Descripcion,"Monto: (+) $%i" , Depositar);
-				actividades.TipoDeActividad = 200;
-				fncBD_RegistrarActividad("Banco: CASTIyO",
+				actividades.TipoDeActividad = taDeposito;
+				fncBD_RegistrarActividades("Banco: E&V Bank",
 				"Deposito: Operacion aceptado",
 				Descripcion);
 
-				printf("------------[ OPERACION REALIZADO ]\n");
+				MOSTRAR_MSGOPERACION("OPERACION REALIZADO");
 				fncBD_MostrarDatosBanco();
 		
 			}
 		}
 		
-	}else printf("Lo siento, la cuenta es inexistente. \n");
-	
+	}else{ MOSTRAR_MSGO_ERROR("Lo siento, la cuenta es inexistente."); }
+
 	fncBD_DeshacerConexionDB();
 	BUFFERFREE;
 	

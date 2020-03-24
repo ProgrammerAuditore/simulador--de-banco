@@ -25,7 +25,7 @@ void fncBD_DeshacerConexionDB(){
 	strcpy(bdusuarios.NoCuenta, BORRARSTR);
 	strcpy(bdusuarios.NoTarjeta, BORRARSTR);
 	strcpy(bdusuarios.PATHActividades, BORRARSTR);
-	strcpy(bdusuarios.PATHUsuario, BORRARSTR);
+	strcpy(bdusuarios.PATHUser, BORRARSTR);
 	strcpy(bdusuarios.PATHBanco, BORRARSTR);
 	bdusuarios.bdUsuarioID = BORRARNUM;
 	

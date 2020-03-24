@@ -2,11 +2,11 @@ void fncBanco_CrearCuenta(){
 	
 	CLEAN;
 	printf("%s", TitulosBanco[1]);
-	char Comandos[250];
+	String Comandos;
 	int UsuarioID=0;
 	
 	FILE *bd = fopen(ArchivoBaseDeDatos[0], "r");
-    char Registro[250];
+    String Registro;
 	int NoAleatorio = 0, dia, mes, anho;
 
     if( bd == NULL){
@@ -21,18 +21,18 @@ void fncBanco_CrearCuenta(){
 
 	printf("Escribe nombre(s): \n");
 	fgets(user.Nombres, MAXCARACTERES, stdin);
-	CHECKEO(user.Nombres);
+	CHECKEO_INPUT(user.Nombres);
 	BUFFERFREE;
 	
 	
 	printf("Escribe apellido paterno: \n");
 	fgets(user.ApellidoPaterno, MAXCARACTERES, stdin);
-	CHECKEO(user.ApellidoPaterno);
+	CHECKEO_INPUT(user.ApellidoPaterno);
 	BUFFERFREE;
 
 	printf("Escribe apellido materno: \n");
 	fgets(user.ApellidoMaterno, MAXCARACTERES, stdin);
-	CHECKEO(user.ApellidoMaterno);
+	CHECKEO_INPUT(user.ApellidoMaterno);
 	BUFFERFREE;
 	
 	printf("Escribe fecha de nacimiento (dd mm aaaa): \n");
@@ -82,16 +82,18 @@ void fncBanco_CrearCuenta(){
 		#endif
 		
 		// Registrar al usuario a la base de datos
-		fncBD_RegistrarUsuarioDB();
+		fncBD_RegistrarBDUsuariosRegistrados();
 		
-		printf("\n------------[ CUENTA CREADO ]\n");
-		printf("------------[ DATOS BANCO ]\n");
+		MOSTRAR_MSGOPERACION("CUENTA CREADO");
+		
+		MOSTRAR_MSGOPERACION("DATOS BANCO");
 		fncBD_MostrarDatosBanco();
-		printf("------------[ DATOS PERSONALES ]\n");
+		
+		MOSTRAR_MSGOPERACION("DATOS PERSONALES");
 		fncBD_MostrarDatosUser();
 		
 	}else{
-		printf("\n------------[ CUENTA NO CREADO ]\n");
+		MOSTRAR_MSGOPERACION("CUENTA NO CREADO");
 	}
 	
 	fncBD_DeshacerConexionDB();

@@ -10,25 +10,7 @@
 // Compatible con Windows y Linux-Mint
 
 int main(){
-
-/*
-if(fncBD_VerificarCuenta("1998-VMA-103")){
-	fncBD_EstablecerConexionBD(false);
-	fncBD_ObtenerDatosBanco();
-	BUFFERFREE;
-
-	// Eliminamos la cuenta
-	fncBD_ActualizarUsuariosBD();
-
-	BUFFERFREE;
-
-	// Agregar usuario
-	fncBD_RegistrarUsuarioDB();
-	BUFFERFREE;
-
-}
-*/
- 
+	 
 	CLEAN;
 	char Opcion;
 

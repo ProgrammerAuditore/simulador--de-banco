@@ -2,12 +2,12 @@ void fncAppBanco_IniciarSession(){
 	
 	CLEAN;
 	printf("%s", TitulosAppBanco[1]);
-	char NoTarjeta[MAXCARACTERES];
+	String NoTarjeta;
 	int PIN = 0;
 
 	printf("1) Introduzca el No. de tarjeta: \n");
 	fgets(NoTarjeta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjeta);
+	CHECKEO_INPUT(NoTarjeta);
 	BUFFERFREE;
 	
 	if(fncBD_VerificarCuenta(NoTarjeta)){
@@ -34,9 +34,22 @@ void fncAppBanco_IniciarSession(){
 			BUFFERFREE;
 			
 			if( PIN == banco.PIN ){
+
+			// Activar session
 			Session = true;
-			Cuenta = banco.EstadoDeCuenta;
+
+			// Verificar el estado de cuenta
+			if( banco.EstadoDeCuenta == ecCuentaCreadaONueva || 
+				banco.EstadoDeCuenta == ecCuentaRecuperado )
+				Cuenta = false;
+			else
+				Cuenta = true;
+
+			// Reiniciar contador de intentos fallidos
 			SessionIntentos = 0;
+			printf("Inicio session, correctamente \n");
+
+
 			}else{		
 				// Contar los intetos fallidos
 				// printf("1>[%s] --- 2>[%s] \n", GuardaCuenta, NoTarjeta);
@@ -51,6 +64,7 @@ void fncAppBanco_IniciarSession(){
 						printf("\nNOTA:\n");
 						printf("Lo siento, la cuenta esta bloqueada. \n");
 						printf("Intentos fallidos %i. \n", SessionIntentos);
+						printf("Cuenta bloqueada, acude al banco para desbloquearlo. \n");
 					}else{
 					// Si el usuario al momento de introducir el PIN
 					// mostramos una advertencia.
@@ -59,16 +73,13 @@ void fncAppBanco_IniciarSession(){
 						printf("Intentos disponible %i. \n", 3 - SessionIntentos);
 						strcpy(GuardaCuenta, banco.NoTarjeta);
 					}	
+
+					fncBD_DeshacerConexionDB();
 			}
 		}
 	}
-	else
-	{
-		printf("\nNOTA:\n");
-		printf("Lo siento, la cuenta es inexistente. \n");
-	}
+	else{ MOSTRAR_MSGO_ERROR("Lo siento, la cuenta es inexistente."); }
 	
-	fncBD_DeshacerConexionDB();
 	BUFFERFREE;
 
 }

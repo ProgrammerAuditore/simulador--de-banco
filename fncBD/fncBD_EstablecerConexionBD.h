@@ -3,24 +3,24 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 	int conexion=0;
 	//printf("%s %s \n", bdusuarios.NoCuenta, bdusuarios.NoTarjeta);
 	
-	snprintf(bdusuarios.PATHUsuario, MAXCARACTERES * 2 ,"%s%s/%s%s",
+	snprintf(bdusuarios.PATHUser, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0],
 	bdusuarios.NoCuenta,
-	FileBD[2],
+	FilesBD[2],
 	bdusuarios.NoTarjeta
 	);
 	
-	FILE *PATHUsuario = fopen(bdusuarios.PATHUsuario, "r");
-	if(PATHUsuario == NULL){
+	FILE *PATHUser = fopen(bdusuarios.PATHUser, "r");
+	if(PATHUser == NULL){
 		perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :).\n");
 		exit(1);
 	}else{ conexion++; }
-	fclose(PATHUsuario);
+	fclose(PATHUser);
 	
 	snprintf(bdusuarios.PATHActividades, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0],
 	bdusuarios.NoCuenta,
-	FileBD[0],
+	FilesBD[0],
 	bdusuarios.NoTarjeta
 	);
 	
@@ -34,7 +34,7 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 	snprintf(bdusuarios.PATHBanco, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0],
 	bdusuarios.NoCuenta,
-	FileBD[1],
+	FilesBD[1],
 	bdusuarios.NoTarjeta
 	);
 	
@@ -46,7 +46,7 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 	fclose(PATHABanco);
 	
 	if( conexion == 3){
-		printf("------------[ CONEXION ESTABLECIDA ]\n");
+		MOSTRAR_MSGOPERACION("CONEXION ESTABLECIDA");
 		if(verConexion)
 			fncBD_MostrarConexionDB();
 	}

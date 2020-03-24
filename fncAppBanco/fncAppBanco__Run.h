@@ -1,6 +1,6 @@
 // Archivo - AppBanco
 char TitulosAppBanco[15][250] = {
-"################## APP BANCO ###################\n", // 0	
+"################## APP E&V BANK ###################\n", // 0	
 "################## INICIAR SESSION ###################\n", // 1	
 "################## CERRAR SESSION ###################\n", // 2
 "################## DATOS PERSONALES ###################\n", // 3
@@ -15,8 +15,7 @@ char TitulosAppBanco[15][250] = {
 // Controlar la session
 bool Session = false; 
 int SessionIntentos = 0;
-char GuardaCuenta[MAXCARACTERES];
-
+String GuardaCuenta;
 
 // Controlar la cuenta
 bool Cuenta = false;

@@ -1,7 +1,7 @@
-void fncBD_MostrarActividades(int xAct){
+void fncBD_MostrarDatosActividades(int xAct){
 	
 	FILE *bd = fopen(bdusuarios.PATHActividades,"r");
-	char Registro[MAXCARACTERES];
+	String Registro;
 	int Coincidencias=0;
 	
 	if( bd == NULL){
@@ -11,7 +11,8 @@ void fncBD_MostrarActividades(int xAct){
 	
 	GETREGISTRO(Registro, bd);
 	actividades.TotalDeCampos = atoi(Registro);
-	//printf("------------[ ACTIVIDADES ]\n");
+	//if( actividades.TotalDeCampos > 10 ) CLEAN;
+	//MOSTRAR_MSGOPERACION("ACTIVIDADES");
 	printf("################################################ \n");
 	//printf("%i > Total de registros analizar \n", actividades.TotalDeCampos);
 	

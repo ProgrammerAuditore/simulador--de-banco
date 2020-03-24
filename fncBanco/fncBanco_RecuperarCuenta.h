@@ -2,11 +2,11 @@ void fncBanco_RecuperarCuenta(){
     
     CLEAN;
 	printf("%s", TitulosBanco[12]);
-	char NoTarjeta[MAXCARACTERES];
+	String NoTarjeta;
 
 	printf("1) Introduzca el No. de tarjeta: \n");
 	fgets(NoTarjeta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjeta);
+	CHECKEO_INPUT(NoTarjeta);
 	BUFFERFREE;
 	
 	if(fncBD_VerificarCuenta(NoTarjeta)){
@@ -33,18 +33,20 @@ void fncBanco_RecuperarCuenta(){
 			banco.EstadoDeCuenta = ecCuentaRecuperado;
 			fncBD_ActualizarDBBanco();
 
+			// Registrar operacion
+			actividades.TipoDeActividad = taConfiguracionCuenta;
+			fncBD_RegistrarActividades("Banco: E&V Bank",
+			"Cuenta: Recuperada", "Operacion: Aprobada");
+
 			printf("\nNOTA:\n");
 			printf("La cuenta %s \n", banco.NoCuenta);
 			printf("con no. de tarjeta %s: \n", banco.NoTarjeta);
 			printf("Se recupero exitosamente. \n");
 
-			printf("\n------------[ DATOS BANCO ]\n");
+			MOSTRAR_MSGOPERACION("DATOS BANCO");
 			fncBD_MostrarDatosBanco();
 		}
-	}else
-	{
-		printf("Lo siento, la cuenta es inexistente. \n");
-	}
+	}else{ MOSTRAR_MSGO_ERROR("Lo siento, la cuenta es inexistente."); }
 	
 	fncBD_DeshacerConexionDB();
 	// BUFFERFREE;

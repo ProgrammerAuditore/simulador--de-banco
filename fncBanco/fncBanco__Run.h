@@ -1,6 +1,6 @@
 // Archivo - Banco
 char TitulosBanco[20][250] = {
-"################## BANCO ###################\n", // 0	
+"################## E&V BANK  ###################\n", // 0	
 "################## CREAR CUENTA ###################\n", // 1	
 "################## MODIFICAR DATOS PERSONALES ###################\n", // 2	
 "################## BUSCAR CUENTA ###################\n", // 3
@@ -14,20 +14,21 @@ char TitulosBanco[20][250] = {
 "################## ELIMINAR CUENTA ###################\n", // 11
 "################## RECUPERAR CUENTA ###################\n", // 12
 "################## CONFIGURAR CUENTA ###################\n", // 13
-"################## OPCIONES DE CUENTA ###################\n" // 14
+"################## OPCIONES DE CUENTA ###################\n", // 14
+"################## DESACTIVAR CUENTA ###################\n" // 15
 };
 
 // Funciones globales para el programa Banco
 int fnc_NumRandom(){
 	time_t t;
 	srand((unsigned) time(&t));
-	return 100 + rand() % 989;
+	return 100 + rand() % 899;
 }
 
 int fnc_GenerarPIN(){
 	time_t t;
 	srand((unsigned) time(&t));
-	return 100000 + rand() % 998999;
+	return ( 111111 + rand() % 888888 );
 }
 
 // Archivos de cabecera - Banco
@@ -40,6 +41,7 @@ int fnc_GenerarPIN(){
 #include "./fncBanco_Transferir.h"
 #include "./fncBanco_EliminarCuenta.h"
 #include "./fncBanco_ActivarCuenta.h"
+#include "./fncBanco_DesactivarCuenta.h"
 #include "./fncBanco_BloquearCuenta.h"
 #include "./fncBanco_ConfigurarCuenta.h"
 #include "./fncBanco_RecuperarCuenta.h"

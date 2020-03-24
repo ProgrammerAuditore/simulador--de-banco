@@ -1,7 +1,7 @@
-void fncBanco_BloquearCuenta(){
+void fncBanco_DesactivarCuenta(){
     
     CLEAN;
-	printf("%s", TitulosBanco[10]);
+	printf("%s", TitulosBanco[15]);
 	String NoTarjeta;
 	int PIN[2] = {0,0};
 
@@ -18,17 +18,17 @@ void fncBanco_BloquearCuenta(){
 
 				// Verificar el saldo de cuenta
 		if( banco.Saldo > 0  ){
-				MOSTRAR_MSGO_ERROR("Lo siento, la cuenta tiene fondos.");
+				MOSTRAR_MSGO_ERROR("Lo siento, la cuenta tiene fondos.");	
 				// Verificar el estado de cuenta
+		}else if( banco.EstadoDeCuenta == ecCuentaDesactivada){
+			printf("Lo siento, operacion rechazado. \n");
+			printf("Cuenta ya esta desactivada. \n");
 		}else if( banco.EstadoDeCuenta == ecCuentaBloqueada ){
 			printf("Lo siento, operacion rechazado. \n");
-			printf("Cuenta ya esta bloqueada. \n");
+			printf("Cuenta bloqueada, la cuenta deberia estar (activada).  \n");
 		}else if( banco.EstadoDeCuenta == ecCuentaCreadaONueva){
 			printf("Lo siento, operacion rechazado. \n");
 			printf("Cuenta nueva, la cuenta deberia estar (activada). \n");
-		}else if( banco.EstadoDeCuenta == ecCuentaDesactivada){
-			printf("Lo siento, operacion rechazado. \n");
-			printf("Cuenta desactiva, la cuenta deberia estar (activada). \n");
 		}else if( banco.EstadoDeCuenta == ecCuentaRecuperado){
 			printf("Lo siento, operacion rechazado. \n");
 			printf("Cuenta recuperada, la cuenta deberia estar (activada). \n");
@@ -50,8 +50,8 @@ void fncBanco_BloquearCuenta(){
 				MOSTRAR_MSGO_ERROR("Lo siento, PIN incorrecto.");
 			}else{
                 // Cambiar estado de cuenta a :
-                // cuenta bloqueada
-                banco.EstadoDeCuenta = ecCuentaBloqueada;
+                // cuenta desactivada
+                banco.EstadoDeCuenta = ecCuentaDesactivada;
                 
                 // Actualizar la base de datos << banco >>
 				// de la cuenta
@@ -60,12 +60,12 @@ void fncBanco_BloquearCuenta(){
 				// Registrar operacion
 				actividades.TipoDeActividad = taConfiguracionCuenta;
 				fncBD_RegistrarActividades("Banco: E&V Bank",
-				"Cuenta: Bloqueada", "Operacion: Aprobada");
+				"Cuenta: Desactivada", "Operacion: Aprobada");
                 
                 printf("\nNOTA:\n");
                 printf("La cuenta %s \n", banco.NoCuenta);
                 printf("con no. de tarjeta %s: \n", banco.NoTarjeta);
-                printf("Se bloqueo exitosamente. \n");
+                printf("Se desactivo exitosamente. \n");
             }
         }
 	}else{ MOSTRAR_MSGO_ERROR("Lo siento, la cuenta es inexistente."); }

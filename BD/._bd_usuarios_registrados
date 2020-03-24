@@ -1,4 +1,6 @@
-1;    // Total de usuarios 
-test; // Usuario de pruebas
-test1;  // Usuario de pruebas
-// Fin del documento
+2;    // Total de usuarios 
+test; // RgAnterior>1 // El primero 
+test1; // RgAnterior>2 
+2000-ECF-206; 
+2000206133;  
+// Fin del documento. No borrar ningun dato.

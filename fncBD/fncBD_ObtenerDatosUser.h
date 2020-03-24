@@ -1,7 +1,7 @@
 void fncBD_ObtenerDatosUser(){
     
-    FILE *bd = fopen( bdusuarios.PATHUsuario ,"r");
-    char Registro[250];
+    FILE *bd = fopen( bdusuarios.PATHUser ,"r");
+    String Registro;
 
     if(bd == NULL){
         perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :).\n");

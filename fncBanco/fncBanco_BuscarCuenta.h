@@ -2,25 +2,22 @@ void fncBanco_BuscarCuenta(){
 	
 	CLEAN;
 	printf("%s", TitulosBanco[3]);
-	char NoTarjeta[MAXCARACTERES];
+	String NoTarjeta;
 
 	printf("1) Introduzca el No. de tarjeta: \n");
 	fgets(NoTarjeta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjeta);
+	CHECKEO_INPUT(NoTarjeta);
 	BUFFERFREE;
 	
 	if(fncBD_VerificarCuenta(NoTarjeta)){
 		fncBD_EstablecerConexionBD(false);
 
-		printf("------------[ DATOS BANCO ]\n");
+		MOSTRAR_MSGOPERACION("DATOS BANCO");
 		fncBD_MostrarDatosBanco();
 		
-		printf("------------[ DATOS PERSONALES ]\n");
+		MOSTRAR_MSGOPERACION("DATOS PERSONALES");
 		fncBD_MostrarDatosUser();
-	}else
-	{
-		printf("Lo siento, la cuenta es inexistente. \n");
-	}
+	}else{ MOSTRAR_MSGO_ERROR("Lo siento, la cuenta es inexistente."); }
 	
 	fncBD_DeshacerConexionDB();
 	//BUFFERFREE;

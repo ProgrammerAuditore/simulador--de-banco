@@ -1,29 +1,20 @@
-void fncBD_RegistrarActividad(String xRemitente, String xAsunto, String xDescripcion){
+// No es necesario colocar ";" al final por que es automatico
+void fncBD_RegistrarActividades(String xRemitente, String xAsunto, String xDescripcion){
 	
 	
 	// Obtener PATH temporal
-	#ifdef __WIN32
-		char PATHtmp[MAXCARACTERES];
-		sprintf(PATHtmp,"%s%s/%s%s",
-		FolderBD[0],
-		bdusuarios.NoCuenta,
-		FileBD[3],
-		bdusuarios.NoTarjeta
-		);
-	#elif __linux__
-		char PATHtmp[500];
-		sprintf(PATHtmp,"%s%s/%s%s",
-		FolderBD[0],
-		bdusuarios.NoCuenta,
-		FileBD[3],
-		bdusuarios.NoTarjeta
-		);
-	#endif
-	
+	String PATHtmp;
+	snprintf(PATHtmp, MAXCARACTERES * 2  ,"%s%s/%s%s",
+	FolderBD[0],
+	bdusuarios.NoCuenta,
+	FilesBD[3],
+	bdusuarios.NoTarjeta
+	);
+
 	FILE *bd = fopen(bdusuarios.PATHActividades, "r+");
 	FILE *bd_tmp = fopen(PATHtmp, "w+");
-	char Registro[MAXCARACTERES];
-    char cFecha[MAXCARACTERES];
+	String Registro;
+    String cFecha;
     
 	 // Obtener la fecha
 	time_t f; time(&f);
@@ -61,6 +52,8 @@ void fncBD_RegistrarActividad(String xRemitente, String xAsunto, String xDescrip
 	
 	SEPARARSTR(actividades.Descripcion, xDescripcion,"\n");
 	fprintf(bd_tmp,"%s;\n", actividades.Descripcion);
+
+	fprintf(bd_tmp, "%s", "// Fin del documento. No borrar ningun dato. ");
 	
 	fclose(bd_tmp);
 	

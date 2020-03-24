@@ -12,14 +12,14 @@ void fncAppBanco_ConsultarSaldo(){
 	    scanf("%i", &PIN[1]);
 	    BUFFERFREE;
 
-        if( NUEVO_PIN(PIN[1]) ){
-            printf("\n*** ");
-            printf("Lo siento, PIN (nuevo) debe ser de 6 digitos. \n");
-        }else if(PIN[1] != PIN[0]){
-            printf("\n*** ");
-            printf("Lo siento, PIN de la cuenta no coinciden. \n");
-        }else{
-            
+        if( CHECKEO_PIN(PIN[1]) ){
+			MOSTRAR_MSGO_ERROR("Lo siento, PIN debe ser de 6 digitos.");
+		}else if(PIN[1] != PIN[0]){
+			MOSTRAR_MSGO_ERROR("Lo siento, PIN no coinciden.");
+		}else if( PIN[1] != banco.PIN ){
+			MOSTRAR_MSGO_ERROR("Lo siento, PIN incorrecto.");
+		}else{
+
             printf("\nNOTA:\n");
             printf("El saldo de la cuenta %s  \n", banco.NoCuenta);
             printf("con no. de tarjeta %s es: \n", banco.NoTarjeta);

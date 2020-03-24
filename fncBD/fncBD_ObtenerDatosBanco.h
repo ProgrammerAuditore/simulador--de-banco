@@ -3,7 +3,7 @@ void fncBD_ObtenerDatosBanco(){
     FILE *bd = fopen( bdusuarios.PATHBanco ,"r");
 	FILE *bdact = fopen( bdusuarios.PATHActividades , "r");
 
-    char Registro[250];
+    String Registro;
 
     if(bd == NULL || bdact == NULL){
         perror("Lo siento, BASE DE DATOS de datos de banco no establecida. :).\n");

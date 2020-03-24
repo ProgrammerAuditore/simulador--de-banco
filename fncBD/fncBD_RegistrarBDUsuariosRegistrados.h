@@ -1,6 +1,6 @@
-void fncBD_RegistrarUsuarioDB(){
+void fncBD_RegistrarBDUsuariosRegistrados(){
 	FILE *bd = fopen(ArchivoBaseDeDatos[0], "r+");
-	char Registro[250];
+	String Registro;
 	
 	if( bd == NULL){
 		perror("Base de datos no encontrado... \n");
@@ -20,7 +20,7 @@ void fncBD_RegistrarUsuarioDB(){
 
 	fprintf(bd,"%s; \n", bdusuarios.NoTarjeta );
 	fprintf(bd,"%s;  \n", bdusuarios.NoCuenta );
-	fprintf(bd, "%s", "// Fin del documento");
+	fprintf(bd, "%s", "// Fin del documento. No borrar ningun dato.");
 	
 	// Registrar el numero de registros
 	rewind(bd);
@@ -29,6 +29,6 @@ void fncBD_RegistrarUsuarioDB(){
 	
 	fncBD_CrearBDActividades();
 	fncBD_CrearBDBanco();
-	fncBD_CrearBDUsuario();
+	fncBD_CrearBDUser();
 	
 }

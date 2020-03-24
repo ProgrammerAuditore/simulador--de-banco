@@ -3,10 +3,10 @@ void fncBD_CrearBDActividades(){
 	// Crear la base de datos de actividades
 	sprintf(bdusuarios.PATHActividades,"%s%s/%s%s",
 	FolderBD[0], banco.NoCuenta,
-	FileBD[0], banco.NoTarjeta);
+	FilesBD[0], banco.NoTarjeta);
 	
 	FILE *bd = fopen(bdusuarios.PATHActividades, "w+");
-	char cFecha[MAXCARACTERES];
+	String cFecha;
 	
 	if( bd == NULL){
 		perror("Base de datos << actividades >> no creado... \n");
@@ -18,11 +18,13 @@ void fncBD_CrearBDActividades(){
 	SEPARARSTR(cFecha, cFecha,"\n");
 	
 	fprintf(bd,"1;   // No. de operaciones \n");
-	fprintf(bd,"100; // Tpo de actividad \n");
+	fprintf(bd,"%i; // Tpo de actividad \n", taNotificacionBanco );
 	fprintf(bd,"%s; // Fecha \n", cFecha);
-	fprintf(bd,"Banco: E&V;  // Remitente \n");
-	fprintf(bd,"Cuenta: creada; // Asunto \n");
-	fprintf(bd,"Monto: (+) $0.00; // Descripcion \n");
+	fprintf(bd,"Banco: E&V Bank;  // Remitente \n");
+	fprintf(bd,"Cuenta: Creada; // Asunto \n");
+	fprintf(bd,"Operacion: Aprobada; // Descripcion \n");
+	fprintf(bd, "%s", "// Fin del documento. No borrar ningun dato. ");
+	//fprintf(bd,"Monto: (+) $0.00; // Descripcion \n");
 	
 	fclose(bd);	
 }

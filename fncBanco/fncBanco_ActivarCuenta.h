@@ -2,12 +2,12 @@ void fncBanco_ActivarCuenta(){
         
     CLEAN;
 	printf("%s", TitulosBanco[8]);
-	char NoTarjeta[MAXCARACTERES];
+	String NoTarjeta;
 	int PIN[2] = {0,0};
 
 	printf("1) Introduzca el No. de tarjeta: \n");
 	fgets(NoTarjeta, MAXCARACTERES, stdin);
-	CHECKEO(NoTarjeta);
+	CHECKEO_INPUT(NoTarjeta);
 	BUFFERFREE;
 	
 	if(fncBD_VerificarCuenta(NoTarjeta)){
@@ -33,33 +33,48 @@ void fncBanco_ActivarCuenta(){
 			scanf("%i", &PIN[1]);
 			BUFFERFREE;
 
-			if( NUEVO_PIN(PIN[1]) ){
-				printf("\n*** ");
-				printf("Lo siento, PIN debe ser de 6 digitos. \n");
+			if( CHECKEO_PIN(PIN[1]) ){
+				MOSTRAR_MSGO_ERROR("Lo siento, PIN debe ser de 6 digitos.");
 			}else if(PIN[1] != PIN[0]){
-				printf("\n*** ");
-				printf("Lo siento, PIN no coinciden. \n");
+				MOSTRAR_MSGO_ERROR("Lo siento, PIN no coinciden.");
 			}else if( PIN[1] != banco.PIN ){
-				printf("\n*** ");
-				printf("Lo siento, PIN incorrecto. \n");
+				MOSTRAR_MSGO_ERROR("Lo siento, PIN incorrecto.");
 			}else{
+				
+				int ecGuardado = banco.EstadoDeCuenta;
+				// Generamos PIN nuevo solo si la cuenta esta:
+				// bloqueada o desactivada
+				if(banco.EstadoDeCuenta != ecCuentaRecuperado )
+					banco.PIN = fnc_GenerarPIN();
+
 				// Se activa la cuenta, solo si la cuenta aun
 				// no esta activada, es decir, que el estado de cuenta esta:
-				// Bloqueda o Desactivada
+				// Bloqueda o Desactivada o Recuperada
 				banco.EstadoDeCuenta = ecCuentaActivada;
 				
 				// Actualizar la base de datos << banco >>
 				// de la cuenta
                 fncBD_ActualizarDBBanco();
+
+				// Registrar operacion
+				actividades.TipoDeActividad = taConfiguracionCuenta;
+				fncBD_RegistrarActividades("Banco: E&V Bank",
+				"Cuenta: Activada", "Operacion: Aprobada");
 				
 				printf("\nNOTA:\n");
 				printf("La cuenta %s \n", banco.NoCuenta);
 				printf("con no. de tarjeta %s: \n", banco.NoTarjeta);
 				printf("Se activo exitosamente. \n");
+
+				// Mostramos PIN nuevo solo si la cuenta esta:
+				// bloqueada o desactivada
+				if( ecGuardado != ecCuentaRecuperado )
+					printf("PIN generado: %i \n", banco.PIN);
+
 			}
 		}
 
-	}else printf("Lo siento, la cuenta es inexistente. \n");
+	}else{ MOSTRAR_MSGO_ERROR("Lo siento, la cuenta es inexistente."); }
 
 	fncBD_DeshacerConexionDB();
 	//BUFFERFREE;

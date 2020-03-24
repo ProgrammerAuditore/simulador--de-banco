@@ -1,13 +1,13 @@
-void fncBD_ActualizarUsuariosBD(){
+void fncBD_ActualizarBDUsuariosRegistrados(){
 	
 	String _pathbd_tmp ;
-	snprintf(_pathbd_tmp, MAXCARACTERES, "%s%s", FolderBD[0] ,FileBD[3]);
+	snprintf(_pathbd_tmp, MAXCARACTERES, "%s%s", FolderBD[0] ,FilesBD[3]);
 
 	FILE *bd = fopen(ArchivoBaseDeDatos[0], "r+");
 	FILE *bd_tmp = fopen(_pathbd_tmp, "w+");
 
 	int Rgfilas = 0;
-	char Registro[250];
+	String Registro;
 	
 	if( bd == NULL){
 		perror("Base de datos << registo de usuarios >> no encontrado... \n");
@@ -43,7 +43,7 @@ void fncBD_ActualizarUsuariosBD(){
 		}
 	}
 	
-	fprintf(bd_tmp, "%s", "// Fin del documento");
+	fprintf(bd_tmp, "%s", "// Fin del documento. No borrar ningun dato. ");
 
 	fclose(bd);
 	fclose(bd_tmp);

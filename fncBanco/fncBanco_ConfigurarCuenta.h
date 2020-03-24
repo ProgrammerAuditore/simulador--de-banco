@@ -17,6 +17,7 @@ void fncBanco_ConfigurarCuenta(){
     {
         case 0: break; break;
         case 1: fncBanco_ActivarCuenta(); break;
+        case 2: fncBanco_DesactivarCuenta(); break;
         case 3: fncBanco_BloquearCuenta(); break;
         case 4: fncBanco_EliminarCuenta(); break;
         default:

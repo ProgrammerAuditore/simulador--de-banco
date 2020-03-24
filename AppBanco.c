@@ -10,9 +10,6 @@
 // gcc -c AppBanco.c -I"./src" -std=c99 && gcc -o AppBanco AppBanco.o
 // Compatible con Windows y Linux-Mint
 
-// Funciones pendientes:
-// - 
-
 int main(){
 
 	CLEAN;

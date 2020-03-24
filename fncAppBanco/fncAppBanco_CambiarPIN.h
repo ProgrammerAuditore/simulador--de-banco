@@ -18,15 +18,12 @@ void fncAppBanco_CambiarPIN(){
 	    scanf("%i", &PIN[1]);
 	    BUFFERFREE;
 
-        if( NUEVO_PIN(PIN[1]) ){
-            printf("\n*** ");
-            printf("Lo siento, PIN (nuevo) debe ser de 6 digitos. \n");
+        if( CHECKEO_PIN(PIN[1]) ){
+            MOSTRAR_MSGO_ERROR("Lo siento, PIN (nuevo) debe ser de 6 digitos.");
         }else if(PIN[1] == banco.PIN){
-            printf("\n*** ");
-            printf("Lo siento, PIN (nuevo) no deber ser igual al anterior. \n");
+            MOSTRAR_MSGO_ERROR("Lo siento, PIN (nuevo) no deber ser igual al anterior.");
         }else if(PIN[1] != PIN[0]){
-            printf("\n*** ");
-            printf("Lo siento, PIN (nuevo) no coinciden. \n");
+            MOSTRAR_MSGOPERACION("Lo siento, PIN (nuevo) no coinciden.");
         }else{
             
             // Al cambiar el PIN la cuenta se activa
@@ -38,11 +35,8 @@ void fncAppBanco_CambiarPIN(){
        
         }
 
-    }else{
-        printf("\n*** ");
-        printf("Lo siento, PIN incorrecto. \n");
-    }
-	
+    }else MOSTRAR_MSGOPERACION("Lo siento, PIN incorrecto.");
+
 	BUFFERFREE;
 
 }
