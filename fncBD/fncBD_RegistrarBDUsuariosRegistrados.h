@@ -18,10 +18,14 @@ void fncBD_RegistrarBDUsuariosRegistrados(){
 		}
 	}
 
-	fprintf(bd,"%s; \n", bdusuarios.NoTarjeta );
-	fprintf(bd,"%s;  \n", bdusuarios.NoCuenta );
+	// Nos posicionamos en el documento actual
+	fseek(bd, 0, SEEK_CUR);
+
+	// Guardamos informacion en el archivo
+	fprintf(bd, "%s; \n", bdusuarios.NoTarjeta );
+	fprintf(bd, "%s;  \n", bdusuarios.NoCuenta );
 	fprintf(bd, "%s", "// Fin del documento. No borrar ningun dato.");
-	
+
 	// Registrar el numero de registros
 	rewind(bd);
 	fprintf(bd, "%i;", bdusuarios.TotalDeCampos + 1 );

@@ -60,7 +60,7 @@
 
 #define ELIMINAR_DIR( ComandoOS ,PathDir ) \
 	String _dir; \
-	snprintf(_dir, MAXCARACTERES * 2, "%s %s%s", ComandoOS , FolderBD[0], PathDir ); \
+	snprintf(_dir, MAXCARACTERES * 2, "%s \"%s%s\"", ComandoOS , FolderBD[0], PathDir ); \
 	system(_dir);
 
 //  Mostrar mensaje de operacion - Solo texto
