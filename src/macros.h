@@ -1,11 +1,14 @@
 // Macros
-#define MAXCARACTERES 250
+#define MAXCARACTERES 500
 #define PARTITURAS ";"
 #define BORRARSTR "\0"
 #define BORRARNUM -1
 #define NOFILAS_DBACT 5
 #define NOFILAS_DBUSER 4
 #define NOFILAS_BDUSUARIOS 2
+#define ANHO_ACTUAL 2020
+#define MENOR_EDAD_APROBADO 18
+#define MAYOR_EDA_APROBADO 50
 
 #ifdef __linux__
 	#define CLEAN system("clear");

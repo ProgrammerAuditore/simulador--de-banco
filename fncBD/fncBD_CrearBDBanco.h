@@ -1,7 +1,7 @@
 void fncBD_CrearBDBanco(){
 	
 	// Crear la base de datos de banco
-	snprintf(bdusuarios.PATHBanco, 500,"%s%s/%s%s",
+	snprintf(bdusuarios.PATHBanco, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0], banco.NoCuenta,
 	FilesBD[1], banco.NoTarjeta);
 	

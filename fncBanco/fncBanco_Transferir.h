@@ -58,7 +58,7 @@ void fncBanco_Transferir(){
 		
 			// Registrar actividad - 301 - Transferencia enviado
 			actividades.TipoDeActividad = taTransferenciaEnviado;
-			sprintf(_Asunto, "Transferencia enviado: %s", NoTarjeta2);
+			snprintf(_Asunto, MAXCARACTERES * 2 , "Transferencia enviado: %s", NoTarjeta2);
 			sprintf(_Descripcion, "Monto: (-) $%i", iTransferir);
 			fncBD_RegistrarActividades("Banco: E&V Bank", _Asunto, _Descripcion);
 			
@@ -72,7 +72,7 @@ void fncBanco_Transferir(){
 			
 			// Registrar actividad - 302 - Transferencia recibido
 			actividades.TipoDeActividad = taTransferenciaRecibido;
-			sprintf(_Asunto, "Transferencia recibido: %s", NoTarjeta1);
+			snprintf(_Asunto, MAXCARACTERES * 2 , "Transferencia recibido: %s", NoTarjeta1);
 			sprintf(_Descripcion, "Monto: (+) $%i", iTransferir);
 			fncBD_RegistrarActividades("Banco: E&V Bank", _Asunto, _Descripcion);
 		

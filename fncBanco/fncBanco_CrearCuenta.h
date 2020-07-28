@@ -37,8 +37,12 @@ void fncBanco_CrearCuenta(){
 	
 	printf("Escribe fecha de nacimiento (dd mm aaaa): \n");
 	scanf("%i %i %i", &dia, &mes, &anho);
-	if( (dia > 0 && dia <= 32) && (mes > 0 && mes <= 12) && 
-		( (2020-anho) >= 18 && (2020-anho) <= 52 ))
+
+	// Verificar la fecha de nacimiento
+	if( (dia > 0 && dia <= 32) &&
+		(mes > 0 && mes <= 12) && 
+		( ( ANHO_ACTUAL  - anho )  >  MENOR_EDAD_APROBADO && 
+		  ( ANHO_ACTUAL  - anho )  <  MAYOR_EDA_APROBADO ))
 	{
 		sprintf( user.FechaNacimiento,"%i/%i/%i", dia, mes, anho);
 		printf("Campo aceptado.\n");
@@ -77,7 +81,7 @@ void fncBanco_CrearCuenta(){
 			mkdir(Comandos);
 		#elif __linux__
 			// Creamos la carpeta
-			sprintf(Comandos,"%s%s",FolderBD[0], banco.NoCuenta);
+			snprintf(Comandos, MAXCARACTERES * 2 ,"%s%s",FolderBD[0], banco.NoCuenta);
 			mkdir(Comandos, 0777);
 		#endif
 		

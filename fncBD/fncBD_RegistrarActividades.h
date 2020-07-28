@@ -18,7 +18,7 @@ void fncBD_RegistrarActividades(String xRemitente, String xAsunto, String xDescr
     
 	 // Obtener la fecha
 	time_t f; time(&f);
-    sprintf(cFecha,"%s",ctime(&f));
+    snprintf(cFecha, MAXCARACTERES * 2 ,"%s",ctime(&f));
 	
 	if(bd == NULL){
 		perror("Base de datos no econtrados...");

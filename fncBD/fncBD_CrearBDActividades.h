@@ -1,7 +1,7 @@
 void fncBD_CrearBDActividades(){
 	
 	// Crear la base de datos de actividades
-	sprintf(bdusuarios.PATHActividades,"%s%s/%s%s",
+	snprintf(bdusuarios.PATHActividades, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0], banco.NoCuenta,
 	FilesBD[0], banco.NoTarjeta);
 	
@@ -14,7 +14,7 @@ void fncBD_CrearBDActividades(){
 	
 	// Obtener la fecha
 	time_t f; time(&f);
-    sprintf(cFecha,"%s",ctime(&f));
+    snprintf(cFecha, MAXCARACTERES * 2 , "%s",ctime(&f));
 	SEPARARSTR(cFecha, cFecha,"\n");
 	
 	fprintf(bd,"1;   // No. de operaciones \n");

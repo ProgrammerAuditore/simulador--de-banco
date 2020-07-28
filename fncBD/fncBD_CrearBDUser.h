@@ -1,7 +1,7 @@
 void fncBD_CrearBDUser(){
 	
 	// Crear la base de datos de usuario
-	sprintf(bdusuarios.PATHUser,"%s%s/%s%s",
+	snprintf(bdusuarios.PATHUser, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0], banco.NoCuenta,
 	FilesBD[2], banco.NoTarjeta);
 	
