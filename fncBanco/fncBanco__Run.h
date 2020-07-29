@@ -33,6 +33,7 @@ int fnc_GenerarPIN(){
 
 // Archivos de cabecera - Banco
 #include "./fncBanco_MensajesMenu.h"
+#include "./fncBanco_GenerarInforme.h"
 #include "./fncBanco_CrearCuenta.h"
 #include "./fncBanco_BuscarCuenta.h"
 #include "./fncBanco_Depositar.h"

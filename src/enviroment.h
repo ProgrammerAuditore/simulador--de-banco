@@ -1,7 +1,7 @@
 int CAMPOS_INCORRECTAS = 0;
 typedef char String[250];
-char ArchivoBaseDeDatos[1][250] = {"./BD/._bd_usuarios_registrados"};
-char FolderBD[1][250] = {"./BD/"};
+char ArchivoBaseDeDatos[1][250] = {"./.BD/._bd_usuarios_registrados"};
+char FolderBD[1][250] = {"./.BD/."};
 char FilesBD[4][250] = {"._act_","._banco_","._user_","._tmp_"};
 String _banner_;
 

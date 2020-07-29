@@ -2,7 +2,7 @@ void fncBanco_CrearCuenta(){
 	
 	CLEAN;
 	printf("%s", TitulosBanco[1]);
-	String Comandos;
+	String NombreCarpeta = {'\0'};
 	int UsuarioID=0;
 	
 	FILE *bd = fopen(ArchivoBaseDeDatos[0], "r");
@@ -77,24 +77,27 @@ void fncBanco_CrearCuenta(){
 		
 		#ifdef __WIN32	
 			// Creamos la carpeta
-			sprintf(Comandos,"%s%s",FolderBD[0], banco.NoCuenta);
-			mkdir(Comandos);
+			snprintf(NombreCarpeta, MAXCARACTERES * 2 ,"%s%s",FolderBD[0], banco.NoCuenta);
+			mkdir(NombreCarpeta);
 		#elif __linux__
 			// Creamos la carpeta
-			snprintf(Comandos, MAXCARACTERES * 2 ,"%s%s",FolderBD[0], banco.NoCuenta);
-			mkdir(Comandos, 0777);
+			snprintf(NombreCarpeta, MAXCARACTERES * 2 ,"%s%s",FolderBD[0], banco.NoCuenta);
+			mkdir(NombreCarpeta, 0777);
 		#endif
 		
 		// Registrar al usuario a la base de datos
 		fncBD_RegistrarBDUsuariosRegistrados();
-		
+
 		MOSTRAR_MSGOPERACION("CUENTA CREADO");
-		
-		MOSTRAR_MSGOPERACION("DATOS BANCO");
-		fncBD_MostrarDatosBanco();
-		
-		MOSTRAR_MSGOPERACION("DATOS PERSONALES");
-		fncBD_MostrarDatosUser();
+		printf("Numero de cuenta: %s \n", banco.NoCuenta );
+
+		// Generar informe del nuevo cuenta
+		MOSTRAR_MSGOPERACION("INFORME CREADO");
+		fncBanco_GenerarInforme();
+
+		printf("\n");
+		printf("Todos tu datos estan en el informe. \n");
+		printf("Encontraras tu NIP generado en el informe.\nGracias.\n");
 		
 	}else{
 		MOSTRAR_MSGOPERACION("CUENTA NO CREADO");

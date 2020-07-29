@@ -31,12 +31,12 @@ void fncBanco_Transferir(){
 		MOSTRAR_MSGO_ERROR("Lo siento, operacion rechazado.\nCuenta bloqueda.");
 	}else if( banco.EstadoDeCuenta == ecCuentaCreadaONueva){
 		MOSTRAR_MSGO_ERROR("Lo siento, operacion rechazado.");
-		printf("Cuenta nueva, activar cuenta antes de realizar operaciones. \n");
-		fncBD_ObtenerDatosBanco();
+		printf("La cuenta remitente es nueva, activar cuenta antes de realizar operaciones. \n");
+		//fncBD_ObtenerDatosBanco();
 	}else if( banco.EstadoDeCuenta == ecCuentaDesactivada){
 		MOSTRAR_MSGO_ERROR("Lo siento, operacion rechazado.");
-		printf("Cuenta desactivada, activar cuenta antes de realizar operaciones. \n");
-		fncBD_ObtenerDatosBanco();
+		printf("La cuenta remitente esta desactivada, activar cuenta antes de realizar operaciones. \n");
+		//fncBD_ObtenerDatosBanco();
 	}else{
 
 		fncBD_EstablecerConexionBD(false);

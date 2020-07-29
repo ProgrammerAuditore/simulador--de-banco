@@ -22,8 +22,8 @@ void fncBD_RegistrarBDUsuariosRegistrados(){
 	fseek(bd, 0, SEEK_CUR);
 
 	// Guardamos informacion en el archivo
-	fprintf(bd, "%s; \n", bdusuarios.NoTarjeta );
-	fprintf(bd, "%s;  \n", bdusuarios.NoCuenta );
+	fprintf(bd, "%s; // %i \n", bdusuarios.NoTarjeta, bdusuarios.bdUsuarioID );
+	fprintf(bd, "%s; // %i \n", bdusuarios.NoCuenta, bdusuarios.bdUsuarioID );
 	fprintf(bd, "%s", "// Fin del documento. No borrar ningun dato.");
 
 	// Registrar el numero de registros

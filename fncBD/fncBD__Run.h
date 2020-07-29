@@ -6,6 +6,7 @@
 #include "./fncBD_ObtenerBDUsuariosRegistrados.h"
 #include "./fncBD_MostrarConexionDB.h"
 #include "./fncBD_EstablecerConexionBD.h"
+#include "./fncBD_ObtenerDatosActividades.h"
 #include "./fncBD_ObtenerDatosUser.h"
 #include "./fncBD_ObtenerDatosBanco.h"
 #include "./fncBD_MostrarDatosBanco.h"

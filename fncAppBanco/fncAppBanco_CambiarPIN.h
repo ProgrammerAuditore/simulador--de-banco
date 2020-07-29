@@ -4,17 +4,17 @@ void fncAppBanco_CambiarPIN(){
 	printf("%s", TitulosAppBanco[0]);
 	int PIN[2] = {0,0};
 
-	printf("1) Introduzca PIN ( actual ): \n");
+	printf("1) Introduzca PIN ( actual ) de 6 digitos: \n");
 	scanf("%i", &PIN[0]);
 	BUFFERFREE;
 
     if( PIN[0] == banco.PIN){
         
-        printf("2) Introduzca PIN nuevo: \n");
+        printf("2) Introduzca PIN nuevo de 6 digitos: \n");
 	    scanf("%i", &PIN[0]);
 	    BUFFERFREE;
 
-        printf("3) Confirmar PIN nuevo: \n");
+        printf("3) Confirmar PIN nuevo de 6 digitos: \n");
 	    scanf("%i", &PIN[1]);
 	    BUFFERFREE;
 

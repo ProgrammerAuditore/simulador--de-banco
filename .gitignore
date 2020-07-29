@@ -1,6 +1,7 @@
 # Customize
 Banco
 AppBanco
+*.info
 
 # Prerequisites
 *.d

@@ -3,13 +3,16 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 	int conexion=0;
 	//printf("%s %s \n", bdusuarios.NoCuenta, bdusuarios.NoTarjeta);
 	
+	// Generar el PATH de la carpeta de la cuenta
 	snprintf(bdusuarios.PATHUser, MAXCARACTERES * 2 ,"%s%s/%s%s",
 	FolderBD[0],
 	bdusuarios.NoCuenta,
 	FilesBD[2],
 	bdusuarios.NoTarjeta
 	);
-	
+
+	// printf("::: %s :::\n", bdusuarios.PATHUser);
+
 	FILE *PATHUser = fopen(bdusuarios.PATHUser, "r");
 	if(PATHUser == NULL){
 		perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :).\n");

@@ -5,6 +5,7 @@ void fncBD_ObtenerBDUsuariosRegistrados(){
 	int bdTotal = 0;
 
     if( bd == NULL){
+        perror("fncBD_ObtenerBDUsuariosRegistrados: \n");
         perror("Lo siento, BASE DE DATOS de datos de registro no establecida. :).\n");
         exit(1);
     }
