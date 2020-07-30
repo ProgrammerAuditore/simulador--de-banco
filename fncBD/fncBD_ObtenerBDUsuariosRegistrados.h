@@ -6,7 +6,7 @@ void fncBD_ObtenerBDUsuariosRegistrados(){
 
     if( bd == NULL){
         perror("fncBD_ObtenerBDUsuariosRegistrados: \n");
-        perror("Lo siento, BASE DE DATOS de datos de registro no establecida. :).\n");
+        perror("Lo siento, BASE DE DATOS de << registros de cuentas >>  no establecida. :'( \n");
         exit(1);
     }
 

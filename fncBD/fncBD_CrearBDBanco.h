@@ -8,9 +8,11 @@ void fncBD_CrearBDBanco(){
 	FILE *bd = fopen(bdusuarios.PATHBanco, "w+");
 	
 	if( bd == NULL){
+		perror("fncBD_CrearBDBanco: \n");
 		perror("Base de datos << banco >> no creado... \n");
+		exit(1);
 	}
-	
+
 	fprintf(bd, "%s; // No. Tarjeta \n", banco.NoTarjeta);
 	fprintf(bd, "%s; // No. Cuenta \n", banco.NoCuenta);
 	fprintf(bd, "%i; // PIN \n", banco.PIN);

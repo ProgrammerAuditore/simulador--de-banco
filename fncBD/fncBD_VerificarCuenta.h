@@ -5,7 +5,8 @@ bool fncBD_VerificarCuenta(String xCuenta){
     bool SiExiste = false;
 
     if( bd == NULL){
-        perror("Lo siento, BASE DE DATOS de datos de registro no establecida. :).\n");
+        perror("fncBD_VerificarCuenta: \n");
+        perror("Lo siento, BASE DE DATOS de << registros de cuentas >>  no establecida. :'( \n");
         exit(1);
     }
 

@@ -10,6 +10,7 @@ void fncBD_ActualizarBDUsuariosRegistrados(){
 	String Registro;
 	
 	if( bd == NULL){
+		perror("fncBD_ActualizarBDUsuariosRegistrados: \n");
 		perror("Base de datos << registo de usuarios >> no encontrado... \n");
 		exit(1);
 	}

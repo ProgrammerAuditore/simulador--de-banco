@@ -5,7 +5,8 @@ void fncBD_MostrarDatosActividades(int xAct){
 	int Coincidencias=0;
 	
 	if( bd == NULL){
-		perror("Adios");
+		perror("fncBD_MostrarDatosActividades: \n");
+		perror("Lo siento, BASE DE DATOS de datos de actividades no establecida. :'( \n");
 		exit(1);
 	}
 	

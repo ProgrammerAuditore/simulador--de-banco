@@ -10,7 +10,8 @@ void fncBanco_CrearCuenta(){
 	int NoAleatorio = 0, dia, mes, anho;
 
     if( bd == NULL){
-        perror("Lo siento, BASE DE DATOS de datos de registro no establecida. :).\n");
+        perror("fncBanco_CrearCuenta: \n");
+        perror("Lo siento, BASE DE DATOS de << registros de cuentas >>  no establecida. :'( \n");
         exit(1);
     }
 	

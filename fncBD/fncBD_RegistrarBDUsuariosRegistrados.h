@@ -3,8 +3,9 @@ void fncBD_RegistrarBDUsuariosRegistrados(){
 	String Registro;
 	
 	if( bd == NULL){
-		perror("Base de datos no encontrado... \n");
-		exit(1);
+		perror("fncBD_RegistrarBDUsuariosRegistrados: \n");
+        perror("Lo siento, BASE DE DATOS de << registros de cuentas >>  no establecida. :'( \n");
+        exit(1);
 	}
 	
 	GETREGISTRO(Registro, bd);
@@ -22,8 +23,8 @@ void fncBD_RegistrarBDUsuariosRegistrados(){
 	fseek(bd, 0, SEEK_CUR);
 
 	// Guardamos informacion en el archivo
-	fprintf(bd, "%s; // %i \n", bdusuarios.NoTarjeta, bdusuarios.bdUsuarioID );
-	fprintf(bd, "%s; // %i \n", bdusuarios.NoCuenta, bdusuarios.bdUsuarioID );
+	fprintf(bd, "%s; // %i \n", bdusuarios.NoTarjeta, bdusuarios.TotalDeCampos + 1 );
+	fprintf(bd, "%s; // %i \n", bdusuarios.NoCuenta, bdusuarios.TotalDeCampos + 1 );
 	fprintf(bd, "%s", "// Fin del documento. No borrar ningun dato.");
 
 	// Registrar el numero de registros

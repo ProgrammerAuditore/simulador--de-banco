@@ -21,7 +21,8 @@ void fncBD_RegistrarActividades(String xRemitente, String xAsunto, String xDescr
     snprintf(cFecha, MAXCARACTERES * 2 ,"%s",ctime(&f));
 	
 	if(bd == NULL){
-		perror("Base de datos no econtrados...");
+		perror("fncBD_RegistrarActividades: \n");
+		perror("Lo siento, BASE DE DATOS de datos de actividades no establecida. :'( \n");
 		exit(1);
 	}
 	

@@ -15,7 +15,8 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 
 	FILE *PATHUser = fopen(bdusuarios.PATHUser, "r");
 	if(PATHUser == NULL){
-		perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :).\n");
+		perror("1) fncBD_EstablecerConexionBD: \n");
+		perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :'( \n");
 		exit(1);
 	}else{ conexion++; }
 	fclose(PATHUser);
@@ -29,7 +30,8 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 	
 	FILE *PATHActividades = fopen(bdusuarios.PATHActividades, "r");
 	if(PATHActividades == NULL){
-		perror("Lo siento, BASE DE DATOS de datos de actividades no establecida. :).\n");
+		perror("2) fncBD_EstablecerConexionBD: \n");
+		perror("Lo siento, BASE DE DATOS de datos de actividades no establecida. :'( \n");
 		exit(1);
 	}else{ conexion++; }
 	fclose(PATHActividades);
@@ -43,6 +45,7 @@ void fncBD_EstablecerConexionBD(bool verConexion){
 	
 	FILE *PATHABanco = fopen(bdusuarios.PATHBanco, "r");
 	if(PATHABanco == NULL){
+		perror("3) fncBD_EstablecerConexionBD: \n");
 		perror("Lo siento, BASE DE DATOS de datos de banco no establecida. :).\n");
 		exit(1);
 	}else{ conexion++; }

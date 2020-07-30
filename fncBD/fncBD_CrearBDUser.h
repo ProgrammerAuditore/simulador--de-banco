@@ -8,9 +8,11 @@ void fncBD_CrearBDUser(){
 	FILE *bd = fopen(bdusuarios.PATHUser, "w+");
 	
 	if( bd == NULL){
+		perror("fncBD_CrearBDUser: \n");
 		perror("Base de datos << usuario >> no creado... \n");
+		exit(1);
 	}
-	
+
 	fprintf(bd, "%s; // Nombres \n", user.Nombres);
 	fprintf(bd, "%s; // Apellido 1 \n", user.ApellidoPaterno);
 	fprintf(bd, "%s; // Apellido 2 \n", user.ApellidoMaterno);

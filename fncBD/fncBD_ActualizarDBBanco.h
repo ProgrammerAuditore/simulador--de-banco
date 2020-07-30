@@ -3,6 +3,7 @@ void fncBD_ActualizarDBBanco(){
 	FILE *bd_tmp = fopen(bdusuarios.PATHBanco,"w+");
 		
 	if( bd_tmp == NULL){
+		perror("fncBD_ActualizarDBBanco: \n");
 		perror("Error la base de datos no encontrados...");
 		exit(1);
 	}

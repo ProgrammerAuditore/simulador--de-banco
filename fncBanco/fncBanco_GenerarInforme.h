@@ -10,6 +10,7 @@ void fncBanco_GenerarInforme(){
     FILE *info = fopen(strPathInfo, "w+");
 
 	if( info == NULL){
+		perror("fncBanco_GenerarInforme: \n");
 		perror("Base de datos << banco >> no creado... \n");
 	}
 	

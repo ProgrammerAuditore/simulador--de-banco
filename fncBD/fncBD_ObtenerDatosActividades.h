@@ -4,8 +4,9 @@ void fncBD_ObtenerDatosCuenta(){
     String Registro;
 
     if(bd == NULL){
-        perror("Lo siento, BASE DE DATOS de datos de actividades no establecida. :).\n");
-        exit(1);
+        perror("fncBD_ObtenerDatosCuenta: \n");
+		perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :'( \n");
+		exit(1);
     }
 
     // GETREGISTRO(Registro, bd);

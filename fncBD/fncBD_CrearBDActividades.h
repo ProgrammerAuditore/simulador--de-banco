@@ -9,9 +9,11 @@ void fncBD_CrearBDActividades(){
 	String cFecha;
 	
 	if( bd == NULL){
+		perror("fncBD_CrearBDActividades: \n");
 		perror("Base de datos << actividades >> no creado... \n");
-	}	 
-	
+		exit(1);
+	}
+
 	// Obtener la fecha
 	time_t f; time(&f);
     snprintf(cFecha, MAXCARACTERES * 2 , "%s",ctime(&f));

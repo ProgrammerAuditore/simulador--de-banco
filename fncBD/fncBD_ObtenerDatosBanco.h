@@ -6,7 +6,8 @@ void fncBD_ObtenerDatosBanco(){
     String Registro;
 
     if(bd == NULL || bdact == NULL){
-        perror("Lo siento, BASE DE DATOS de datos de banco no establecida. :).\n");
+        perror("fncBD_ObtenerDatosBanco: \n");
+        perror("Lo siento, BASE DE DATOS de datos de banco no establecida. :'( \n");
         exit(1);
     }
 	

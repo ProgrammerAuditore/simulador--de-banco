@@ -4,7 +4,8 @@ void fncBD_ObtenerDatosUser(){
     String Registro;
 
     if(bd == NULL){
-        perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :).\n");
+        perror("fncBD_ObtenerDatosUser: \n");
+        perror("Lo siento, BASE DE DATOS de datos de usuario no establecida. :'( \n");
         exit(1);
     }
 
