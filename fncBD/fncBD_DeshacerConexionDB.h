@@ -6,7 +6,6 @@ void fncBD_DeshacerConexionDB(){
 	strcpy(user.ApellidoMaterno, BORRARSTR);
 	strcpy(user.FechaNacimiento, BORRARSTR);
 	
-	
 	// Borrar datos actividades
 	actividades.TipoDeActividad = BORRARNUM;
 	strcpy(actividades.Fecha, BORRARSTR);
@@ -28,5 +27,7 @@ void fncBD_DeshacerConexionDB(){
 	strcpy(bdusuarios.PATHUser, BORRARSTR);
 	strcpy(bdusuarios.PATHBanco, BORRARSTR);
 	bdusuarios.bdUsuarioID = BORRARNUM;
-	
+
+	// Reiniciar los campos incorrectos
+	CAMPOS_INCORRECTAS = 0;
 }

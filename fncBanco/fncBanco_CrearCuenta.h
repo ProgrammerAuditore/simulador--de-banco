@@ -46,9 +46,9 @@ void fncBanco_CrearCuenta(){
 		  ( ANHO_ACTUAL  - anho )  <  MAYOR_EDA_APROBADO ))
 	{
 		sprintf( user.FechaNacimiento,"%i/%i/%i", dia, mes, anho);
-		printf("Campo aceptado.\n");
+		printf( BLK GRNB "Campo aceptado.\n" reset);
 	}else{
-		printf("Campo rechazado.\n");
+		printf( BLK REDB "Campo rechazado.\n" reset);
 		CAMPOS_INCORRECTAS++;
 	} BUFFERFREE; 
 	

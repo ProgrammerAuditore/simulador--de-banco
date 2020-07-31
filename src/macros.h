@@ -32,7 +32,6 @@
 			printf( BLK REDB "Campo rechazado.\n" BLK reset); \
 			CAMPOS_INCORRECTAS++; \
 		}else{  \
-			CAMPOS_INCORRECTAS = 0; \
 			printf( BLK GRNB "Campo aceptado.\n" reset); \
 		}
 
