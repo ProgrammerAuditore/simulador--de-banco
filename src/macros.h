@@ -20,7 +20,7 @@
 					while(getchar() != '\n');
 
 #define OPTIONERROR \
-	printf("Lo siento, opcion incorrecta."); \
+	printf( BLK GRNB "Lo siento, opcion incorrecta." reset); \
 	BUFFERFREE;	\
 
 #define OPTION( Key, fnc ) \
@@ -29,11 +29,11 @@
 #define CHECKEO_INPUT(a) \
 		strtok(a, "\n"); \
 		if( ((int)strlen(a) - 1) == 0 ){ \
-			printf("Campo rechazado.\n"); \
+			printf( BLK REDB "Campo rechazado.\n" BLK reset); \
 			CAMPOS_INCORRECTAS++; \
 		}else{  \
 			CAMPOS_INCORRECTAS = 0; \
-			printf("Campo aceptado.\n"); \
+			printf( BLK GRNB "Campo aceptado.\n" reset); \
 		}
 
 #define DESICION(VERDAD, FALSO) \
@@ -69,11 +69,11 @@
 //  Mostrar mensaje de operacion - Solo texto
 #define MOSTRAR_MSGOPERACION( Mensaje ) \
 	sprintf( _banner_, "\n------------[ %s ]\n", Mensaje); \
-	printf("%s", _banner_); \
+	printf( BLK YELB "%s" reset, _banner_); \
 	strcpy( _banner_ ,"\0");
 
 // Mostrar mensaje de error de operacion - Solo texto
 #define MOSTRAR_MSGO_ERROR( Mensaje ) \
 	sprintf( _banner_, "\n*** %s \n", Mensaje); \
-	printf("%s", _banner_); \
+	printf( BLK REDB "%s" reset, _banner_); \
 	strcpy( _banner_ ,"\0");

@@ -14,6 +14,7 @@
 #endif
 
 // Archivos de Cabecera  - SRC
+#include "ANSI-color-codes.h"
 #include "enviroment.h"
 #include "macros.h"
 #include "fnc_CompararString.h"
