@@ -5,10 +5,6 @@
 // Archivos de cabecera << ./Banco >>
 #include "./fncBanco/fncBanco__Run.h"
 
-// Compilar
-// gcc -c Banco.c -I"./src" -std=c99 && gcc -o Banco Banco.o
-// Compatible con Windows y Linux-Mint
-
 int main(){
 	 
 	CLEAN;
