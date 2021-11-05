@@ -2,6 +2,7 @@
 Banco
 AppBanco
 *.info
+.BD/*.*
 
 # Prerequisites
 *.d
